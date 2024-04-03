@@ -1,15 +1,13 @@
 const jwt = require('jsonwebtoken');
 
-module.exports =  function (id, login, role) {
+module.exports =  function (login) {
     let expiresIn = '7d';
     // if (role === 'ADMIN') {
     //     expiresIn = '1h';
     // }
     return jwt.sign(
         {
-            id,
-            login,
-            role
+            login
         },
         process.env.SECRET_KEY,
         { expiresIn }

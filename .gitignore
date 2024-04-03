@@ -12,3 +12,5 @@ logs
 
 *.bkp
 *.dtmp
+
+tests
