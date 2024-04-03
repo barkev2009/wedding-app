@@ -15,3 +15,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.pc_blocker {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  background-color: darkgreen;
+  color: antiquewhite;
+  font-size: 25px;
+  text-align: center;
+  padding-top: 300px;
+}
+
+
+@media (min-width: 900px) {
+  .pc_blocker {
+    display: block;
+  }
+}
