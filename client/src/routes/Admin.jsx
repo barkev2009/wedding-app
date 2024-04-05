@@ -1,0 +1,68 @@
+import React, { useEffect, useState } from 'react';
+import Link from '../components/Link';
+import { createAPI, deleteAPI, editAPI, getAllLinks } from '../api/link';
+
+const Admin = () => {
+
+  const [links, setLinks] = useState([]);
+  const [name, setName] = useState('');
+
+  const createHandler = (e) => {
+    e.preventDefault();
+    createAPI(name).then(
+      resp => {
+        setLinks([...links, resp].sort((a, b) => b.name - a.name));
+      }
+    );
+    setName('');
+  }
+
+  const editHandler = ({ link_uuid, name, allergy, code }) => {
+    return () => {
+      editAPI({ link_uuid, name, allergy, code }).then(
+        ({ link }) => {
+          setLinks([...links.filter(item => item.link_uuid !== link.link_uuid), link].sort((a, b) => b.name - a.name));
+        }
+      )
+    }
+  }
+
+  const deleteHandler = (link_uuid) => {
+    return () => {
+      deleteAPI(link_uuid).then(
+        ({ link }) => {
+          setLinks(links.filter(item => item.link_uuid !== link.link_uuid).sort((a, b) => b.name - a.name));
+        }
+      )
+    }
+  }
+
+  useEffect(
+    () => {
+      getAllLinks().then(
+        (resp) => setLinks(resp.sort((a, b) => b.name - a.name))
+      )
+    }, []
+  );
+
+  return (
+    <div style={{padding: '10px'}}>
+      <form onSubmit={createHandler}>
+        <label class="form-label" style={{fontWeight: 'bold'}}>Добавить новый линк</label>
+        <div class="input-group mb-3">
+          <input value={name} onChange={e => setName(e.target.value)} type="text" className="form-control" placeholder="Имя линка" aria-describedby="button-addon2" />
+          <button disabled={name === ''} class="btn btn-outline-primary" type="submit">Создать</button>
+        </div>
+      </form>
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        {
+          links.map(
+            link => <Link key={link.id} link={link} deleteHandler={deleteHandler} editHandler={editHandler} />
+          )
+        }
+      </div>
+    </div>
+  )
+}
+
+export default Admin

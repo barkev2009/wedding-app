@@ -4,9 +4,9 @@ const authMiddleware = require('../middleware/authMiddleware');
 const router = new Router();
 
 router.post('/', authMiddleware, linkController.create);
-router.put('/:link_uuid', authMiddleware, linkController.edit);
+router.put('/:link_uuid', linkController.edit);
 router.delete('/:link_uuid', authMiddleware, linkController.delete);
 router.get('/', authMiddleware, linkController.getAll);
-router.get('/:link_uuid', authMiddleware, linkController.getById);
+router.get('/:link_uuid', linkController.getById);
 
 module.exports = router;

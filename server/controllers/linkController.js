@@ -36,15 +36,23 @@ class LinkController {
                 if (!link) {
                     return next(ApiError.badRequest({ function: 'LinkController.edit', message: 'Объект не найден' }));
                 }
-                const visitOption = await VisitOption.findOne({ where: { code } });
-                if (!visitOption) {
-                    return next(ApiError.badRequest({ function: 'LinkController.edit', message: 'Объект опции не найден' }));
-                }
+                let result;
+                if (code) {
+                    const visitOption = await VisitOption.findOne({ where: { code } });
+                    if (!visitOption) {
+                        return next(ApiError.badRequest({ function: 'LinkController.edit', message: 'Объект опции не найден' }));
+                    }
 
-                const result = await Link.update(
-                    { name, allergy, visitOptionId: visitOption.id },
-                    { where: { link_uuid } }
-                );
+                    result = await Link.update(
+                        { name, allergy, visitOptionId: visitOption.id },
+                        { where: { link_uuid } }
+                    );
+                } else {
+                    result = await Link.update(
+                        { name, allergy },
+                        { where: { link_uuid } }
+                    );
+                }
                 const newLink = await Link.findOne({
                     where: { link_uuid }, include: [
                         {
