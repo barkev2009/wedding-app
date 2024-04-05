@@ -34,11 +34,6 @@
     color: var(--white);
 }
 
-.circles {
-    /* display: flex;
-    flex-direction: row;
-     */
-}
 .circles .circle {
     border-radius: 50%;
     width: 50px;
