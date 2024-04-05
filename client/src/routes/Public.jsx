@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
+import styles from '../screens/screen.module.css';
+import Welcome from '../screens/Welcome';
+import TimePlace from '../screens/TimePlace';
+import DressCode from '../screens/DressCode';
 
 const Public = ({ link }) => {
     return (
-        <div>
-            {JSON.stringify(link, null, 2)}
+        <div className={styles.publicContainer}>
+            <Welcome link={link} />
+            <TimePlace />
+            <DressCode link={link} />
         </div>
     )
 }

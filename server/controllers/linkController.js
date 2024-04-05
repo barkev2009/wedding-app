@@ -30,8 +30,8 @@ class LinkController {
         tryCatchWrapper(
             async () => {
                 const { link_uuid } = req.params;
-                const { name, allergy, code } = req.body;
-
+                const { name, allergy, code, gender } = req.body;
+                console.log(gender);
                 const link = await Link.findOne({ where: { link_uuid } });
                 if (!link) {
                     return next(ApiError.badRequest({ function: 'LinkController.edit', message: 'Объект не найден' }));
@@ -44,12 +44,12 @@ class LinkController {
                     }
 
                     result = await Link.update(
-                        { name, allergy, visitOptionId: visitOption.id },
+                        { name, allergy, gender, visitOptionId: visitOption.id },
                         { where: { link_uuid } }
                     );
                 } else {
                     result = await Link.update(
-                        { name, allergy },
+                        { name, allergy, gender },
                         { where: { link_uuid } }
                     );
                 }

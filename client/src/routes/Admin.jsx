@@ -17,9 +17,9 @@ const Admin = () => {
     setName('');
   }
 
-  const editHandler = ({ link_uuid, name, allergy, code }) => {
+  const editHandler = ({ link_uuid, name, allergy, code, gender }) => {
     return () => {
-      editAPI({ link_uuid, name, allergy, code }).then(
+      editAPI({ link_uuid, name, allergy, code, gender }).then(
         ({ link }) => {
           setLinks([...links.filter(item => item.link_uuid !== link.link_uuid), link].sort((a, b) => b.name - a.name));
         }
@@ -48,13 +48,13 @@ const Admin = () => {
   return (
     <div style={{padding: '10px'}}>
       <form onSubmit={createHandler}>
-        <label class="form-label" style={{fontWeight: 'bold'}}>Добавить новый линк</label>
-        <div class="input-group mb-3">
+        <label className="form-label" style={{fontWeight: 'bold'}}>Добавить новый линк</label>
+        <div className="input-group mb-3">
           <input value={name} onChange={e => setName(e.target.value)} type="text" className="form-control" placeholder="Имя линка" aria-describedby="button-addon2" />
-          <button disabled={name === ''} class="btn btn-outline-primary" type="submit">Создать</button>
+          <button disabled={name === ''} className="btn btn-outline-primary" type="submit">Создать</button>
         </div>
       </form>
-      <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div className="accordion accordion-flush" id="accordionFlushExample">
         {
           links.map(
             link => <Link key={link.id} link={link} deleteHandler={deleteHandler} editHandler={editHandler} />
