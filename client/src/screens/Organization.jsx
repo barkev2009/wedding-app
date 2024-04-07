@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './screen.module.css';
 import { GENDERS } from '../const';
+import WhatsApp from '../svg/WhatsApp';
 
 const Organization = ({ link }) => {
 
@@ -31,7 +32,7 @@ const Organization = ({ link }) => {
     const generatedText = `Здравствуйте, Алена! Вам ${writing} ${link.name}, ${who} - ${guest} на свадьбе Ани и Гриши.`.split(' ').join('%20');
 
     return (
-        <div className={[styles.screen].join(' ')}>
+        <div className={[styles.screen, styles.flex_center].join(' ')}>
             <h1 className={[styles.green_font, styles.center_text].join(' ')}>Организация</h1>
             <h3 className={[styles.green_font, styles.center_text].join(' ')}>
                 На все вопросы связанные с
@@ -40,7 +41,7 @@ const Organization = ({ link }) => {
             <h3 className={[styles.green_font, styles.center_text].join(' ')}>
                 <a href="tel:+79537672033">+7 (953) 767-20-33</a></h3>
             <a aria-label="Chat on WhatsApp" href={`https://wa.me/+79537672033?text=${generatedText}`}>
-                <div>WHATSAPP</div>
+                <WhatsApp />
             </a>
             <h3 className={[styles.green_font, styles.center_text].join(' ')}>
                 {pay} внимание, что место и

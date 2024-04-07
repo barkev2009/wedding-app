@@ -1,3 +1,5 @@
+@import './screens/screen.module.css';
+
 * {
   box-sizing: border-box;
 }
@@ -24,11 +26,12 @@ code {
   width: 100vw;
   height: 100vh;
   z-index: 999;
-  background-color: darkgreen;
+  background-color: var(--green);
   color: antiquewhite;
   font-size: 25px;
   text-align: center;
   padding-top: 300px;
+  font-family: var(--default-font);
 }
 
 

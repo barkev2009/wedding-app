@@ -22,7 +22,7 @@ const DressCode = ({ link }) => {
 
     return (
         <div className={[styles.screen].join(' ')}>
-            <h1 className={[styles.green_font, styles.center_text].join(' ')}>Дресс-код</h1>
+            <h1 className={[styles.green_font, styles.center_text].join(' ')}>Дресс<span style={{fontFamily: 'Mr De Haviland'}}>-</span>код</h1>
             <h2 className={[styles.green_font, styles.center_text].join(' ')}>
                 Для нас главное <br/>
                 {your} присутствие!

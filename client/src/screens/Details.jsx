@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './screen.module.css';
 import { GENDERS } from '../const';
+import Glass from '../svg/Glass';
 
 const Details = ({ link }) => {
 
@@ -24,13 +25,14 @@ const Details = ({ link }) => {
     }
 
     return (
-        <div className={[styles.screen].join(' ')}>
+        <div className={[styles.screen, styles.flex_center].join(' ')}>
             <h1 className={[styles.green_font, styles.center_text].join(' ')}>Детали</h1>
             <h3 className={[styles.green_font, styles.center_text].join(' ')}>
                 Приятным комплиментом для нас будет,
                 если вместо живых цветов {decide} подарить нам бутылочку
                 красного полусладкого вина для
                 нашей семейной винотеки.</h3>
+            <Glass />
             <h3 className={[styles.green_font, styles.center_text].join(' ')}>
                 {think} голову над подарком -
                 мы будем рады {your}.</h3>
