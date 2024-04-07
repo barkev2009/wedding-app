@@ -4,25 +4,31 @@ import { GENDERS } from '../const';
 
 const Organization = ({ link }) => {
 
-    let pay, ensure, writing;
+    let pay, ensure, writing, who, guest;
     switch (link.gender) {
         case GENDERS.male.code:
             pay = 'Обрати';
             ensure = ' позаботься';
             writing = 'пишет';
+            who = 'я';
+            guest = 'гость';
             break;
         case GENDERS.female.code:
             pay = 'Обрати';
             ensure = ' позаботься';
             writing = 'пишет';
+            who = 'я';
+            guest = 'гость';
             break;
         default:
             pay = 'Обратите';
             ensure = ' позаботьтесь';
             writing = 'пишут';
+            who = 'мы';
+            guest = 'гости';
             break;
     }
-    const generatedText = `Здравствуйте, Алена! Вам ${writing} ${link.name}, мы были гостями на свадьбе Ани и Гриши.`.split(' ').join('%20');
+    const generatedText = `Здравствуйте, Алена! Вам ${writing} ${link.name}, ${who} - ${guest} на свадьбе Ани и Гриши.`.split(' ').join('%20');
 
     return (
         <div className={[styles.screen].join(' ')}>
