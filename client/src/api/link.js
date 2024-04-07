@@ -29,3 +29,9 @@ export const getLink = async (link_uuid) => {
     // console.log('getLink', data);
     return data;
 }
+
+export const getVisitOptions = async () => {
+    const { data } = await $host.get('api/visit_options/');
+    // console.log('getVisitOptions', data);
+    return data;
+}

@@ -135,6 +135,16 @@ class LinkController {
         )
     }
 
+    async getVisitOptions(req, res, next) {
+        tryCatchWrapper(
+            async () => {
+                const visitOptions = await VisitOption.findAll();
+                return res.json(visitOptions);
+            },
+            req, res, next, 'LinkController.getVisitOptions'
+        )
+    }
+
 }
 
 module.exports = new LinkController();

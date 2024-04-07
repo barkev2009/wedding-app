@@ -24,12 +24,12 @@ const Welcome = ({ link }) => {
         <div className={[styles.screen].join(' ')}>
             <h1 className={[styles.green_font, styles.center_text].join(' ')}>Григорий и Анна</h1>
             <div>IMAGE</div>
-            <div className={[styles.green_font, styles.center_text].join(' ')}>
+            <h3 className={[styles.green_font, styles.center_text].join(' ')}>
                 {`${dear} ${link.name} !`}
-            </div>
-            <div className={[styles.green_font, styles.center_text].join(' ')}>
-                {`Мы приглашаем ${you}`}<br/>на нашу свадьбу.
-            </div>
+            </h3>
+            <h3 className={[styles.green_font, styles.center_text].join(' ')}>
+                {`Мы приглашаем ${you}`}<br />на нашу свадьбу.
+            </h3>
         </div>
     )
 }
