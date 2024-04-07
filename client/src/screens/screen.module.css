@@ -24,12 +24,15 @@
 .green {
     background-color: var(--green);
 }
+
 .green_font {
     color: var(--green);
 }
+
 .white {
     background-color: var(--white);
 }
+
 .white_font {
     color: var(--white);
 }
@@ -46,42 +49,56 @@
     background-color: #b584a7;
     border: 1px solid #523d4c;
 }
+
 .circle.green {
     background-color: #7bad7b;
     border: 1px solid #354a35;
 }
+
 .circle.brown {
     background-color: #b7a092;
     border: 1px solid #60544c;
 }
+
 .circle.coffee {
     background-color: #ffead5;
     border: 1px solid #cbb9a8;
 }
 
 
-
+.optionContainer,
+.nameContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
 
 /* Определяем размещение по горизонтали элементов обернутых в label */
-.formRadioHidden{
+.formRadioHidden {
     display: flex;
     flex-direction: row;
     height: 40px;
     position: relative;
     align-items: center;
-  }
-  
-  /* Скрываем штатные радио-кнопки */
-  .formRadioHidden input{
+}
+@media (min-width: 500px) {
+    .optionContainer,
+    .nameContainer {
+        flex-direction: row;
+    }
+}
+
+/* Скрываем штатные радио-кнопки */
+.formRadioHidden input {
     position: absolute;
     opacity: 0;
     display: block;
     height: 0;
     width: 0;
-  }
-  
-  /* Устанавливаем параметры элементов, заменяющих штатные радио-кнопки */
-  .formRadioHidden .radio{
+}
+
+/* Устанавливаем параметры элементов, заменяющих штатные радио-кнопки */
+.formRadioHidden .radio {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -93,28 +110,28 @@
     margin-right: 5px;
     border: 1px solid var(--white);
     background-color: var(--green);
-    box-shadow: 0 0 4px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
     cursor: pointer;
     outline: none;
     box-sizing: border-box;
     transition: .5s all;
-  }
-  
-  /* Устанавливаем параметры элементов, заменяющих штатные радио-кнопки при наведении */
-  .formRadioHidden:hover .radio{
+}
+
+/* Устанавливаем параметры элементов, заменяющих штатные радио-кнопки при наведении */
+.formRadioHidden:hover .radio {
     background-color: var(--green);
-  }
-  
-  /* Устанавливаем параметры элементов, заменяющих штатные выбранные радио-кнопки */
-  .formRadioHidden input:checked + .radio{
+}
+
+/* Устанавливаем параметры элементов, заменяющих штатные выбранные радио-кнопки */
+.formRadioHidden input:checked+.radio {
     border-color: var(--white);
     background-color: var(--green);
     cursor: default;
-  }
-  
-  /* Добавляем декор */
-  .formRadioHidden:hover .radio::before, 
-  .formRadioHidden input:checked + .radio::before{
+}
+
+/* Добавляем декор */
+.formRadioHidden:hover .radio::before,
+.formRadioHidden input:checked+.radio::before {
     content: '';
     position: absolute;
     width: 15px;
@@ -123,9 +140,9 @@
     background-color: var(--green);
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-49%);
-  }
-  .formRadioHidden input:checked + .radio::before{
+    transform: translate(-50%, -49%);
+}
+
+.formRadioHidden input:checked+.radio::before {
     background-color: var(--white);
-  }
-  
+}

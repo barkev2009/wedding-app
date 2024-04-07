@@ -66,13 +66,13 @@ const Form = ({ link }) => {
                 01 _____ 202_ года любым удобным
                 для {you} способом.
             </h3>
-            <div>
+            <div className={styles.nameContainer}>
                 <h3 className={[styles.white_font, styles.center_text].join(' ')}>Имя Фамилия</h3>
                 <h3 className={[styles.white_font, styles.center_text].join(' ')}>{link.name}</h3>
             </div>
             <div>
                 <h3 className={[styles.white_font, styles.center_text].join(' ')}>Присутствие</h3>
-                <div>
+                <div className={styles.optionContainer}>
                     {
                         options.map(
                             o => <VisitOption key={o.code} visitOption={o} chosenOption={chosenOption} clickHandler={clickHandler} />
