@@ -14,7 +14,7 @@
 
 .screen {
     scroll-snap-align: start;
-    height: 101vh;
+    height: 100vh;
 }
 
 .center_text {
@@ -44,17 +44,17 @@
 
 .circle.purple {
     background-color: #b584a7;
-    border: 2px solid #523d4c;
+    border: 1px solid #523d4c;
 }
 .circle.green {
     background-color: #7bad7b;
-    border: 2px solid #354a35;
+    border: 1px solid #354a35;
 }
 .circle.brown {
     background-color: #b7a092;
-    border: 2px solid #60544c;
+    border: 1px solid #60544c;
 }
 .circle.coffee {
     background-color: #ffead5;
-    border: 2px solid #cbb9a8;
+    border: 1px solid #cbb9a8;
 }
