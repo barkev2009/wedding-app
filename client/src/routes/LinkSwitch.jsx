@@ -35,19 +35,19 @@ const LinkSwitch = observer(
           getLink(location.pathname).then(
             (resp) => {
               setLink(resp);
-              setLoading(false);
+              setTimeout(() => setLoading(false), 500); 
             }
           )
         } else {
           cookieLink = JSON.parse(cookieLink);
           if (cookieLink.link_uuid === location.pathname.replace('/', '')) {
             setLink(cookieLink);
-            setLoading(false);
+            setTimeout(() => setLoading(false), 500);
           } else {
             getLink(location.pathname).then(
               (resp) => {
                 setLink(resp);
-                setLoading(false);
+                setTimeout(() => setLoading(false), 500);
               }
             )
           }
@@ -56,7 +56,9 @@ const LinkSwitch = observer(
     );
 
     if (loading) {
-      return <div className={[styles.screen, styles.green].join(' ')}></div>
+      return <div className={[styles.screen, styles.green, styles.flex_center].join(' ')}>
+        <h1 className={[styles.white_font, styles.center_text].join(' ')}>Пожалуйста, подождите...</h1>
+      </div>
     }
     if (!link) {
       return <NoData />
