@@ -15,7 +15,13 @@ h1 {
     font-family: var(--title-font);
     font-size: 50px;
     padding-top: 30px;
+    text-wrap: balance;
 }
+
+h1 br {
+    display: none;
+}
+
 h3 {
     font-size: 1.5rem;
 }
@@ -194,6 +200,12 @@ h3 {
     }
     .main_image_group img {
         animation: none;
+    }
+    h1 br {
+        display: block;
+    }
+    .flex {
+        flex: 1 1 0;
     }
 }
 

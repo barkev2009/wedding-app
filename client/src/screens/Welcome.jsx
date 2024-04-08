@@ -24,12 +24,12 @@ const Welcome = ({ link }) => {
 
     return (
         <div className={[styles.screen, styles.flex_center, styles.flex_toggle_direction].join(' ')}>
-            <h1 className={[styles.green_font, styles.center_text].join(' ')}>Григорий и Анна</h1>
-            <div className={styles.main_image_group}>
+            <h1 className={[styles.green_font, styles.center_text, styles.flex].join(' ')}>Григорий <br/> и <br/> Анна</h1>
+            <div className={[styles.main_image_group, styles.flex].join(' ')}>
                 <Rectangle />
                 <img src={png} alt='main' />
             </div>
-            <div>
+            <div className={styles.flex}>
                 <h3 className={[styles.green_font, styles.center_text].join(' ')}>
                     {`${dear} ${link.name}!`}
                 </h3>
