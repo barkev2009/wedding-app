@@ -18,12 +18,20 @@ h1 {
     text-wrap: balance;
 }
 
-h1.toggle_br br {
+.toggle_br br {
     display: none;
+}
+.toggle_br_reverse br {
+    display: block;
+}
+
+h2 {
+    font-weight: 300;
 }
 
 h3 {
     font-size: 1.5rem;
+    font-weight: 300;
 }
 
 .publicContainer {
@@ -44,12 +52,14 @@ h3 {
 .center_text {
     text-align: center;
 }
+
 .flex_center {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
 }
+
 .flex_toggle_direction {
     flex-direction: column;
 }
@@ -192,20 +202,41 @@ h3 {
     animation-iteration-count: infinite;
 }
 
+h2.date {
+    font-size: 4rem;
+    margin-bottom: 4rem;
+}
+
+h2.restaurant {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
 @media (min-width: 500px) {
+
     .optionContainer,
     .nameContainer,
     .flex_toggle_direction {
         flex-direction: row;
     }
+
     .main_image_group img {
         animation: none;
     }
-    h1.toggle_br br {
+
+    .toggle_br br {
         display: block;
     }
+    .toggle_br_reverse br {
+        display: none;
+    }
+
     .flex {
         flex: 1 1 0;
+    }
+
+    h2.date {
+        margin: 0;
     }
 }
 
@@ -213,9 +244,11 @@ h3 {
     0% {
         margin-left: 0px;
     }
+
     50% {
         margin-left: 50px;
     }
+
     100% {
         margin-left: 0px;
     }
