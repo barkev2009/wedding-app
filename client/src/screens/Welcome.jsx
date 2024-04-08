@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './screen.module.css';
 import { GENDERS } from '../const';
+import png from '../images/main.png';
+import Rectangle from '../svg/Rectangle';
 
 const Welcome = ({ link }) => {
 
@@ -21,15 +23,20 @@ const Welcome = ({ link }) => {
     }
 
     return (
-        <div className={[styles.screen].join(' ')}>
+        <div className={[styles.screen, styles.flex_center, styles.flex_toggle_direction].join(' ')}>
             <h1 className={[styles.green_font, styles.center_text].join(' ')}>Григорий и Анна</h1>
-            <div>IMAGE</div>
-            <h3 className={[styles.green_font, styles.center_text].join(' ')}>
-                {`${dear} ${link.name} !`}
-            </h3>
-            <h3 className={[styles.green_font, styles.center_text].join(' ')}>
-                {`Мы приглашаем ${you}`}<br />на нашу свадьбу.
-            </h3>
+            <div className={styles.main_image_group}>
+                <Rectangle />
+                <img src={png} alt='main' />
+            </div>
+            <div>
+                <h3 className={[styles.green_font, styles.center_text].join(' ')}>
+                    {`${dear} ${link.name}!`}
+                </h3>
+                <h3 className={[styles.green_font, styles.center_text].join(' ')}>
+                    {`Мы приглашаем ${you}`}<br />на нашу свадьбу.
+                </h3>
+            </div>
         </div>
     )
 }

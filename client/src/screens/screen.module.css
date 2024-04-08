@@ -17,7 +17,7 @@ h1 {
     padding-top: 30px;
 }
 h3 {
-    font-size: 20px;
+    font-size: 1.5rem;
 }
 
 .publicContainer {
@@ -42,6 +42,10 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
+}
+.flex_toggle_direction {
+    flex-direction: column;
 }
 
 .green {
@@ -104,12 +108,7 @@ h3 {
     position: relative;
     align-items: center;
 }
-@media (min-width: 500px) {
-    .optionContainer,
-    .nameContainer {
-        flex-direction: row;
-    }
-}
+
 
 /* Скрываем штатные радио-кнопки */
 .formRadioHidden input {
@@ -168,4 +167,44 @@ h3 {
 
 .formRadioHidden input:checked+.radio::before {
     background-color: var(--white);
+}
+
+
+.main_image_group {
+    position: relative;
+}
+
+.main_image_group .rect {
+    position: absolute;
+}
+
+.main_image_group img {
+    position: relative;
+    z-index: 1;
+    animation-name: oscillate;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+@media (min-width: 500px) {
+    .optionContainer,
+    .nameContainer,
+    .flex_toggle_direction {
+        flex-direction: row;
+    }
+    .main_image_group img {
+        animation: none;
+    }
+}
+
+@keyframes oscillate {
+    0% {
+        margin-left: 0px;
+    }
+    50% {
+        margin-left: 50px;
+    }
+    100% {
+        margin-left: 0px;
+    }
 }
