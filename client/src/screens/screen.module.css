@@ -18,7 +18,7 @@ h1 {
     text-wrap: balance;
 }
 
-h1 br {
+h1.toggle_br br {
     display: none;
 }
 
@@ -201,7 +201,7 @@ h3 {
     .main_image_group img {
         animation: none;
     }
-    h1 br {
+    h1.toggle_br br {
         display: block;
     }
     .flex {
