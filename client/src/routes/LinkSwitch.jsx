@@ -30,7 +30,7 @@ const LinkSwitch = observer(
     useEffect(
       () => {
         let cookieLink = getCookie('link');
-        if (!cookieLink) {
+        if (!cookieLink || cookieLink === 'null' || cookieLink === 'undefined') {
           getLink(location.pathname).then(
             (resp) => {
               setLink(resp);
