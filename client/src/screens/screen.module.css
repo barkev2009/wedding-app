@@ -204,7 +204,7 @@ h3 {
 
 h2.date {
     font-size: 4rem;
-    margin-bottom: 4rem;
+    margin: 4rem 0;
 }
 
 h2.restaurant {
@@ -237,6 +237,14 @@ h2.restaurant {
 
     h2.date {
         margin: 0;
+        margin-bottom: 2rem;
+    }
+    
+    .timePlace {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
     }
 }
 

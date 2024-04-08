@@ -3,7 +3,7 @@ import styles from './screen.module.css';
 
 const TimePlace = () => {
     return (
-        <div className={[styles.screen, styles.green, styles.flex_toggle_direction, styles.flex_center].join(' ')}>
+        <div className={[styles.screen, styles.green, styles.timePlace].join(' ')}>
             <h1 className={[styles.white_font, styles.center_text].join(' ')}>Место и дата <br /> проведения</h1>
             <div>
                 <h2 className={[styles.white_font, styles.center_text, styles.date].join(' ')}>18.07.2024</h2>
