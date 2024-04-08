@@ -1,4 +1,5 @@
 import { $authHost, $host } from ".";
+import { setCookie } from "../utils/cookies";
 
 export const createAPI = async (name) => {
     const { data } = await $authHost.post('api/link', { name });
@@ -26,6 +27,7 @@ export const getAllLinks = async () => {
 
 export const getLink = async (link_uuid) => {
     const { data } = await $authHost.get('api/link/' + link_uuid);
+    setCookie('link', JSON.stringify(data));
     // console.log('getLink', data);
     return data;
 }
