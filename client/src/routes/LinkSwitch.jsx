@@ -16,7 +16,7 @@ const LinkSwitch = observer(
     const location = useLocation();
     useAuthorization(user, location);
     const [link, setLink] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const editHandler = (visitOption, allergy) => {
       return () => {
         editAPI({ link_uuid: link.link_uuid, code: visitOption.code, allergy }).then(
@@ -29,7 +29,6 @@ const LinkSwitch = observer(
 
     useEffect(
       () => {
-        setLoading(true);
         let cookieLink = getCookie('link');
         if (!cookieLink) {
           getLink(location.pathname).then(
