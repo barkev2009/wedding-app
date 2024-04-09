@@ -276,7 +276,7 @@ h2.dressCodeFirst {
 .arrowDown {
     fill: var(--back);
     animation-name: slide-down;
-    animation-duration: 3s;
+    animation-duration: 5s;
     animation-delay: 5s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
