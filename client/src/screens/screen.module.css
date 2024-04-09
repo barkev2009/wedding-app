@@ -262,6 +262,9 @@ h2.dressCodeFirst {
     margin-top: 2rem;
 }
 
+.programmeContainer {
+    margin-bottom: 2rem;
+}
 .programmeContainer h2 {
     font-size: 4rem;
 }
@@ -319,6 +322,9 @@ h2.dressCodeFirst {
     }
     .dressCode > h1 {
         margin-top: 0;
+    }
+    .programmeContainer {
+        margin-bottom: 0;
     }
     .programmeContainer h2 {
         font-size: 3.5rem;
