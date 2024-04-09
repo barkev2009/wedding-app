@@ -365,11 +365,6 @@ h2.dressCodeFirst {
         fill: var(--green);
     }
 
-    50% {
-        bottom: -20px;
-        fill: var(--green);
-    }
-
     100% {
         bottom: -40px;
         fill: var(--green);
