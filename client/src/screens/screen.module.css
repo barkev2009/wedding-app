@@ -47,6 +47,7 @@ h3 {
     height: 100vh;
     padding: 0 10px;
     font-family: var(--default-font);
+    overflow: hidden;
 }
 
 .center_text {
@@ -80,31 +81,46 @@ h3 {
     color: var(--white);
 }
 
-.circles .circle {
+.circles .circleMain {
     border-radius: 50%;
     width: 3.5rem;
     height: 3.5rem;
     display: inline-block;
     margin: 0 10px;
     transition: all .3s;
+    background-color: transparent;
+    position: relative;
+}
+.circleMain .circle {
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    display: inline-block;
+    margin: 0 10px;
+    transition: all .3s;
+    background-color: transparent;
+    position: absolute;
+    border: none;
+    left: -10px;
+    pointer-events: none;
 }
 
-.circle.purple {
+.circleMain.purple {
     background-color: #b584a7;
     border: 1px solid #523d4c;
 }
 
-.circle.green {
+.circleMain.greenc {
     background-color: #7bad7b;
     border: 1px solid #354a35;
 }
 
-.circle.brown {
+.circleMain.brown {
     background-color: #b7a092;
     border: 1px solid #60544c;
 }
 
-.circle.coffee {
+.circleMain.coffee {
     background-color: #ffead5;
     border: 1px solid #cbb9a8;
 }

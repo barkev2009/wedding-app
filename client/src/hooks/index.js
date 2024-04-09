@@ -28,8 +28,7 @@ export const useIntersectionObserver = () => {
     const callback = (entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                console.log('VISIBLE');
-                const circles = document.querySelectorAll('.' + styles.circle);
+                const circles = document.querySelectorAll('.' + styles.circleMain);
                 circles.forEach(
                     (circle, idx) => {
                         setTimeout(
