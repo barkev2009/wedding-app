@@ -17,9 +17,9 @@ const Admin = () => {
     setName('');
   }
 
-  const editHandler = ({ link_uuid, name, allergy, code, gender }) => {
+  const editHandler = ({ link_uuid, name, allergy, code, gender, send_telegram }) => {
     return () => {
-      editAPI({ link_uuid, name, allergy, code, gender }).then(
+      editAPI({ link_uuid, name, allergy, code, gender, send_telegram }).then(
         ({ link }) => {
           setLinks([...links.filter(item => item.link_uuid !== link.link_uuid), link].sort((a, b) => b.name - a.name));
         }

@@ -9,7 +9,7 @@ const Link = ({ link, deleteHandler, editHandler }) => {
     const [active, setActive] = useState(false);
 
     const selectHandler = (e) => {
-        editHandler({link_uuid: link.link_uuid, gender: e.target.value})();
+        editHandler({link_uuid: link.link_uuid, gender: e.target.value, send_telegram: false})();
     }
 
     useEffect(
@@ -50,7 +50,7 @@ const Link = ({ link, deleteHandler, editHandler }) => {
                                 <div className="input-group mb-3">
                                     <span className="input-group-text">Имя линка</span>
                                     <input onChange={(e) => setName(e.target.value)} value={name} type="text" className="form-control" placeholder="Имя линка" aria-describedby="button-addon2" />
-                                    <button disabled={name === link.name} onClick={editHandler({ link_uuid: link.link_uuid, name })} className="btn btn-outline-primary" type="button" id="button-addon2">Сохранить</button>
+                                    <button disabled={name === link.name} onClick={editHandler({ link_uuid: link.link_uuid, name, send_telegram: false })} className="btn btn-outline-primary" type="button" id="button-addon2">Сохранить</button>
                                 </div>
                             </li>
                             <li className="list-group-item">

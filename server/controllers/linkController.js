@@ -2,7 +2,7 @@ const uuid = require('uuid');
 const tryCatchWrapper = require('../utils/tryCatchWrapper');
 const { Link, VisitOption } = require('../models/models');
 const ApiError = require('../error/ApiError');
-
+const axios = require('axios');
 
 class LinkController {
     async create(req, res, next) {
@@ -30,8 +30,10 @@ class LinkController {
         tryCatchWrapper(
             async () => {
                 const { link_uuid } = req.params;
-                const { name, allergy, code, gender } = req.body;
-                console.log(gender);
+                let { name, allergy, code, gender, send_telegram } = req.body;
+                if (send_telegram === undefined) {
+                    send_telegram = true;
+                }
                 const link = await Link.findOne({ where: { link_uuid } });
                 if (!link) {
                     return next(ApiError.badRequest({ function: 'LinkController.edit', message: 'Объект не найден' }));
@@ -61,6 +63,30 @@ class LinkController {
                         }
                     ]
                 });
+                if (send_telegram) {
+                    let fields = [
+                        '<b>Зафиксировано изменение профиля</b>',
+                        '<b>Ссылка на приглашение</b>: ' + `<a href="${process.env.CLIENT_URL}/${req.params.link_uuid}">${process.env.CLIENT_URL}/${req.params.link_uuid}</a>`,
+                        '<b>Имя приглашенного</b>: ' + newLink.name,
+                        '<b>Присутствие</b>: ' + newLink.visit_option.value,
+                        '<b>Аллергия</b>: ' + newLink.allergy
+                    ]
+                    let msg = ''
+                    //проходимся по массиву и склеиваем все в одну строку
+                    fields.forEach(field => {
+                        msg += field + '\n'
+                    });
+                    //кодируем результат в текст, понятный адресной строке
+                    msg = encodeURI(msg)
+
+                    await axios.post(
+                        `https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage?chat_id=${process.env.CHAT_ID}&parse_mode=html&text=${msg}`
+                    )
+                    msg = `<a href="${process.env.CLIENT_URL}/${req.params.link_uuid}">${process.env.CLIENT_URL}/${req.params.link_uuid}</a>`;
+                    await axios.post(
+                        `https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage?chat_id=${process.env.CHAT_ID}&parse_mode=html&text=${msg}`
+                    )
+                }
                 return res.json({ link: newLink, result });
             },
             req, res, next, 'LinkController.edit'
