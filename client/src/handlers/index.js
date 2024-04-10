@@ -1,6 +1,8 @@
 import styles from '../screens/screen.module.css';
+import ym from 'react-yandex-metrika';
 
 export const clickDressHandler = (e) => {
+    ym('reachGoal', 'circle-click');
     const ITER = 20, SCALE_COUNT = 100;
     const newElem = document.createElement('div');
     let target = e.target;
