@@ -82,10 +82,6 @@ class LinkController {
                     await axios.post(
                         `https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage?chat_id=${process.env.CHAT_ID}&parse_mode=html&text=${msg}`
                     )
-                    msg = `<a href="${process.env.CLIENT_URL}/${req.params.link_uuid}">${process.env.CLIENT_URL}/${req.params.link_uuid}</a>`;
-                    await axios.post(
-                        `https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage?chat_id=${process.env.CHAT_ID}&parse_mode=html&text=${msg}`
-                    )
                 }
                 return res.json({ link: newLink, result });
             },
