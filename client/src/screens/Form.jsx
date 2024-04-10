@@ -14,9 +14,11 @@ const Form = ({ link }) => {
     const { editHandler } = useContext(LinkContext);
     const clickHandler = (e) => {
         if (e.target.id.includes('radio-')) {
-            const newOption = options.filter(item => item.code === e.target.id.replace('radio-', '').replace('parent-', ''))[0]
-            setChosenOption(newOption);
-            editHandler(newOption, allergy)();
+            const newOption = options.filter(item => item.code === e.target.id.replace('radio-', '').replace('parent-', ''))[0];
+            if (newOption.code !== chosenOption.code) {
+                setChosenOption(newOption);
+                editHandler(newOption, allergy)();
+            }
         }
     }
     const buttonHanlder = () => {
