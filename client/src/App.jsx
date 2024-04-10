@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite';
 import AppRouter from './routes/AppRouter';
 import { injectStores } from '@mobx-devtools/tools';
 import user from './store/user';
+import './style.css';
 
 injectStores(
   { user }

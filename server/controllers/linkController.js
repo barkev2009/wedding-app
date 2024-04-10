@@ -10,7 +10,7 @@ class LinkController {
             async () => {
                 const { name, allergy } = req.body;
                 const link_uuid = uuid.v4();
-                const visitOption = await VisitOption.findOne({ where: { code: 'able' } });
+                const visitOption = await VisitOption.findOne({ where: { code: 'later' } });
                 await Link.create({ name, allergy, link_uuid, visitOptionId: visitOption.id });
                 const link = await Link.findOne({
                     where: { link_uuid }, include: [
