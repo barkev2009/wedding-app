@@ -13,11 +13,11 @@ const Form = ({ link }) => {
     const [activeInfo, setActiveInfo] = useState(false);
     const { editHandler } = useContext(LinkContext);
     const clickHandler = (e) => {
-        const newOption = e.target.id.includes('radio-') ? 
-            options.filter(item => item.code === e.target.id.replace('radio-', '').replace('parent-', ''))[0] :
-            options.filter(item => item.code === e.target.parentNode.id.replace('radio-', '').replace('parent-', ''))[0];
-        setChosenOption(newOption);
-        editHandler(newOption, allergy)();
+        if (e.target.id.includes('radio-')) {
+            const newOption = options.filter(item => item.code === e.target.id.replace('radio-', '').replace('parent-', ''))[0]
+            setChosenOption(newOption);
+            editHandler(newOption, allergy)();
+        }
     }
     const buttonHanlder = () => {
         setActiveInfo(true);
@@ -82,9 +82,9 @@ const Form = ({ link }) => {
             </div>
             <div>
                 <h3 className={[styles.white_font, styles.center_text].join(' ')}>{inform} нам об аллергии</h3>
-                <input onChange={e => setAllergy(e.target.value)} className={[styles.white_font, styles.center_text, styles.green].join(' ')} type='text' value={allergy}/>
+                <input onChange={e => setAllergy(e.target.value)} className={[styles.white_font, styles.center_text, styles.green].join(' ')} type='text' value={allergy} />
                 <button onClick={buttonHanlder}>Сохранить</button>
-                <div style={{transition: 'all .4s'}} className={[activeInfo ? styles.white_font : styles.green_font].join(' ')}>{your} данные успешно сохранены!</div>
+                <div style={{ transition: 'all .4s' }} className={[activeInfo ? styles.white_font : styles.green_font].join(' ')}>{your} данные успешно сохранены!</div>
             </div>
         </div>
     )
