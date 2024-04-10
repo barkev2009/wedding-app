@@ -7,8 +7,8 @@ export const createAPI = async (name) => {
     return data;
 }
 
-export const editAPI = async ({ link_uuid, name, allergy, code, gender, send_telegram }) => {
-    const { data } = await $host.put('api/link/' + link_uuid, { name, allergy, code, gender, send_telegram });
+export const editAPI = async ({ link_uuid, name, allergy, code, gender, link_sent, send_telegram }) => {
+    const { data } = await $host.put('api/link/' + link_uuid, { name, allergy, code, gender, link_sent, send_telegram });
     // console.log('editAPI', data);
     return data;
 }

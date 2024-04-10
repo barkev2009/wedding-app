@@ -7,9 +7,14 @@ const Link = ({ link, deleteHandler, editHandler }) => {
     const [name, setName] = useState(link.name);
     const [collapsed, setCollapsed] = useState();
     const [active, setActive] = useState(false);
+    const [check, setCheck] = useState(link.link_sent);
 
     const selectHandler = (e) => {
-        editHandler({link_uuid: link.link_uuid, gender: e.target.value, send_telegram: false})();
+        editHandler({ link_uuid: link.link_uuid, gender: e.target.value })();
+    }
+    const checkHandler = () => {
+        editHandler({ link_uuid: link.link_uuid, link_sent: !check })();
+        setCheck(!check);
     }
 
     useEffect(
@@ -30,8 +35,11 @@ const Link = ({ link, deleteHandler, editHandler }) => {
             <div id={'flush-collapse-' + link.link_uuid} className="accordion-collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                 <div className="accordion-body" >
                     <div className="card">
-                        <div className="card-header">
+                        <div className="card-header" style={{ display: 'flex', justifyContent: 'space-between' }}>
                             <a href={`/${link.link_uuid}`} >{window.location.origin + '/' + link.link_uuid}</a>
+                            <div className="form-check form-switch">
+                                <input style={{position: 'absolute', right: '5px'}} className="form-check-input" type="checkbox" checked={check} onChange={checkHandler} disabled={check} />
+                            </div>
                         </div>
                         <ul className="list-group list-group-flush">
                             <li className="list-group-item">
@@ -50,7 +58,7 @@ const Link = ({ link, deleteHandler, editHandler }) => {
                                 <div className="input-group mb-3">
                                     <span className="input-group-text">Имя линка</span>
                                     <input onChange={(e) => setName(e.target.value)} value={name} type="text" className="form-control" placeholder="Имя линка" aria-describedby="button-addon2" />
-                                    <button disabled={name === link.name} onClick={editHandler({ link_uuid: link.link_uuid, name, send_telegram: false })} className="btn btn-outline-primary" type="button" id="button-addon2">Сохранить</button>
+                                    <button disabled={name === link.name} onClick={editHandler({ link_uuid: link.link_uuid, name })} className="btn btn-outline-primary" type="button" id="button-addon2">Сохранить</button>
                                 </div>
                             </li>
                             <li className="list-group-item">

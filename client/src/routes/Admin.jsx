@@ -11,17 +11,17 @@ const Admin = () => {
     e.preventDefault();
     createAPI(name).then(
       resp => {
-        setLinks([...links, resp].sort((a, b) => b.name - a.name));
+        setLinks([...links, resp].sort((a, b) => a.name.localeCompare(b.name)));
       }
     );
     setName('');
   }
 
-  const editHandler = ({ link_uuid, name, allergy, code, gender, send_telegram }) => {
+  const editHandler = ({ link_uuid, name, allergy, code, gender, link_sent }) => {
     return () => {
-      editAPI({ link_uuid, name, allergy, code, gender, send_telegram }).then(
+      editAPI({ link_uuid, name, allergy, code, gender, link_sent, send_telegram: false }).then(
         ({ link }) => {
-          setLinks([...links.filter(item => item.link_uuid !== link.link_uuid), link].sort((a, b) => b.name - a.name));
+          setLinks([...links.filter(item => item.link_uuid !== link.link_uuid), link].sort((a, b) => a.name.localeCompare(b.name)));
         }
       )
     }
@@ -31,7 +31,7 @@ const Admin = () => {
     return () => {
       deleteAPI(link_uuid).then(
         ({ link }) => {
-          setLinks(links.filter(item => item.link_uuid !== link.link_uuid).sort((a, b) => b.name - a.name));
+          setLinks(links.filter(item => item.link_uuid !== link.link_uuid).sort((a, b) => a.name.localeCompare(b.name)));
         }
       )
     }
@@ -40,7 +40,7 @@ const Admin = () => {
   useEffect(
     () => {
       getAllLinks().then(
-        (resp) => setLinks(resp.sort((a, b) => b.name - a.name))
+        (resp) => setLinks(resp.sort((a, b) => a.name.localeCompare(b.name)))
       )
     }, []
   );
