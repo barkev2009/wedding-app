@@ -25,8 +25,7 @@ const Form = ({ link }) => {
         setTimeout(() => setActiveInfo(false), 3000);
     }
     const focusHandler = () => {
-        console.log(styles.publicContainer);
-        document.querySelector('.' + styles.publicContainer).classList.toggle(styles.scrollSnap);
+        document.querySelector('.publicContainer').classList.toggle('scrollSnap');
     }
 
     useEffect(

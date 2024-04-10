@@ -35,16 +35,6 @@ h3 {
     font-weight: 300;
 }
 
-.publicContainer {
-    overflow: scroll;
-    height: 100vh;
-    width: 100%;
-    background-color: var(--back);
-}
-
-.scrollSnap {
-    scroll-snap-type: y mandatory;
-}
 
 .screen {
     scroll-snap-align: start;

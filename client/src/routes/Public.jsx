@@ -10,7 +10,7 @@ import Organization from '../screens/Organization';
 
 const Public = ({ link }) => {
     return (
-        <div className={[styles.publicContainer, styles.scrollSnap].join(' ')}>
+        <div className={['publicContainer', 'scrollSnap'].join(' ')}>
             <Welcome link={link} />
             <TimePlace />
             <DressCode link={link} />
