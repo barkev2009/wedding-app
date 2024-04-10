@@ -36,11 +36,14 @@ h3 {
 }
 
 .publicContainer {
-    scroll-snap-type: y mandatory;
     overflow: scroll;
     height: 100vh;
     width: 100%;
     background-color: var(--back);
+}
+
+.scrollSnap {
+    scroll-snap-type: y mandatory;
 }
 
 .screen {

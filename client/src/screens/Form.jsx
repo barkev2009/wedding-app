@@ -24,6 +24,9 @@ const Form = ({ link }) => {
         editHandler(chosenOption, allergy)();
         setTimeout(() => setActiveInfo(false), 3000);
     }
+    const focusHandler = () => {
+        document.querySelector('.' + styles.publicContainer).classList.toggle(styles.scrollSnap);
+    }
 
     useEffect(
         () => {
@@ -82,7 +85,7 @@ const Form = ({ link }) => {
             </div>
             <div>
                 <h3 className={[styles.white_font, styles.center_text].join(' ')}>{inform} нам об аллергии</h3>
-                <input onChange={e => setAllergy(e.target.value)} className={[styles.white_font, styles.center_text, styles.green].join(' ')} type='text' value={allergy} />
+                <input onFocus={focusHandler} onBlur={focusHandler} onChange={e => setAllergy(e.target.value)} className={[styles.white_font, styles.center_text, styles.green].join(' ')} type='text' value={allergy} />
                 <button onClick={buttonHanlder}>Сохранить</button>
                 <div style={{ transition: 'all .4s' }} className={[activeInfo ? styles.white_font : styles.green_font].join(' ')}>{your} данные успешно сохранены!</div>
             </div>
