@@ -4,6 +4,7 @@ import { GENDERS } from '../const';
 import { getVisitOptions } from '../api/link';
 import VisitOption from '../components/VisitOption';
 import { LinkContext } from '../routes/LinkSwitch';
+import ym from 'react-yandex-metrika';
 
 const Form = ({ link }) => {
 
@@ -16,12 +17,14 @@ const Form = ({ link }) => {
         if (e.target.id.includes('radio-')) {
             const newOption = options.filter(item => item.code === e.target.id.replace('radio-', '').replace('parent-', ''))[0];
             if (newOption.code !== chosenOption.code) {
+                ym('reachGoal','change-presence');
                 setChosenOption(newOption);
                 editHandler(newOption, allergy)();
             }
         }
     }
     const buttonHanlder = () => {
+        ym('reachGoal','change-allergy');
         setActiveInfo(true);
         editHandler(chosenOption, allergy)();
         setTimeout(() => setActiveInfo(false), 3000);
