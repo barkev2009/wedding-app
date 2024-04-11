@@ -1,11 +1,9 @@
 import { observer } from 'mobx-react-lite'
-import React, { useEffect } from 'react'
-import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import React from 'react'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import user from '../store/user'
 import { authRoutes, publicRoutes } from '../routes'
 import { AUTH_ROUTE } from '../const'
-import axios from 'axios'
-import { $host } from '../api'
 
 const AppRouter = observer(
     () => {

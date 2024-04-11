@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styles from '../screens/screen.module.css';
 
 const VisitOption = ({ visitOption, chosenOption, clickHandler }) => {

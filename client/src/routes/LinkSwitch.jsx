@@ -6,7 +6,6 @@ import { useAuthorization } from '../hooks';
 import NoData from './NoData';
 import Public from './Public';
 import { editAPI, getLink } from '../api/link';
-import { getCookie } from '../utils/cookies';
 import styles from '../screens/screen.module.css';
 
 export const LinkContext = createContext();
