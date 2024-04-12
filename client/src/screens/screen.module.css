@@ -432,12 +432,12 @@ h2.dressCodeFirst {
 
 @keyframes slide-down {
     0% {
-        bottom: 0px;
+        bottom: 2.5rem;
         fill: var(--green);
     }
 
     100% {
-        bottom: -40px;
+        bottom: -2.5rem;
         fill: var(--green);
     }
 }
