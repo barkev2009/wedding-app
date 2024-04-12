@@ -13,12 +13,12 @@ injectStores(
 
 const App = observer(
   () => {
-    // const setHeight = () => {
-    //   // Then we set the value in the --vh custom property to the root of the document
-    //   document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
-    // }
-    // setHeight();
-    // window.addEventListener('resize', () => { setHeight()})
+    const setHeight = () => {
+      // Then we set the value in the --vh custom property to the root of the document
+      document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+    }
+    setHeight();
+    window.addEventListener('resize', () => { setHeight()})
 
     user.checkAuth();
 
