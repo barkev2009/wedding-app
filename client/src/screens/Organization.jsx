@@ -5,25 +5,19 @@ import WhatsApp from '../svg/WhatsApp';
 
 const Organization = ({ link }) => {
 
-    let pay, ensure, writing, who, guest;
+    let writing, who, guest;
     switch (link.gender) {
         case GENDERS.male.code:
-            pay = 'Обрати';
-            ensure = ' позаботься';
             writing = 'пишет';
             who = 'я';
             guest = 'гость';
             break;
         case GENDERS.female.code:
-            pay = 'Обрати';
-            ensure = ' позаботься';
             writing = 'пишет';
             who = 'я';
             guest = 'гость';
             break;
         default:
-            pay = 'Обратите';
-            ensure = ' позаботьтесь';
             writing = 'пишут';
             who = 'мы';
             guest = 'гости';
@@ -47,12 +41,9 @@ const Organization = ({ link }) => {
                     <WhatsApp />
                 </a>
                 <h3 className={[styles.green_font, styles.center_text].join(' ')}>
-                    {pay} внимание, что место и
-                    формат мероприятия не
-                    предполагают детской площадки и
-                    аниматоров. Пожалуйста,
-                    {ensure} о том, чтобы провести
-                    этот вечер без детей
+                    Наш свадебный ужин рассчитан на взрослых, 
+                    за исключением только самых родных и 
+                    близких маленьких гостей
                 </h3>
             </div>
         </div>

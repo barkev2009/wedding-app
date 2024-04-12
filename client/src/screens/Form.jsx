@@ -66,33 +66,35 @@ const Form = ({ link }) => {
     }
 
     return (
-        <div className={[styles.screen, styles.green].join(' ')}>
+        <div className={[styles.screen, styles.green, styles.programme].join(' ')}>
             <h1 className={[styles.white_font, styles.center_text].join(' ')}>Анкета гостя</h1>
-            <h3 className={[styles.white_font, styles.center_text].join(' ')}>
-                Пожалуйста, {confirm}
-                присутствие на нашем празднике до
-                01 _____ 202_ года любым удобным
-                для {you} способом.
-            </h3>
-            <div className={styles.nameContainer}>
-                <h3 className={[styles.white_font, styles.center_text].join(' ')}>Имя Фамилия</h3>
-                <h3 className={[styles.white_font, styles.center_text].join(' ')}>{link.name}</h3>
-            </div>
-            <div>
-                <h3 className={[styles.white_font, styles.center_text].join(' ')}>Присутствие</h3>
-                <div className={styles.optionContainer}>
-                    {
-                        options.map(
-                            o => <VisitOption key={o.code} visitOption={o} chosenOption={chosenOption} clickHandler={clickHandler} />
-                        )
-                    }
+            <div className={styles.flex}>
+                <h3 className={[styles.white_font, styles.center_text, styles.confirm].join(' ')}>
+                    Пожалуйста, {confirm}
+                    присутствие на нашем празднике до 
+                    <b> 01.07.2024</b> любым удобным
+                    для {you} способом.
+                </h3>
+                <div className={styles.nameContainer}>
+                    <h3 className={[styles.white_font].join(' ')}>Имя Фамилия</h3>
+                    <h3 style={{fontSize: '1.2rem'}} className={[styles.white_font].join(' ')}>{link.name}</h3>
                 </div>
-            </div>
-            <div>
-                <h3 className={[styles.white_font, styles.center_text].join(' ')}>{inform} нам об аллергии</h3>
-                <input onFocus={focusHandler} onBlur={focusHandler} onChange={e => setAllergy(e.target.value)} className={[styles.white_font, styles.center_text, styles.green].join(' ')} type='text' value={allergy} />
-                <button onClick={buttonHanlder}>Сохранить</button>
-                <div style={{ transition: 'all .4s' }} className={[activeInfo ? styles.white_font : styles.green_font].join(' ')}>{your} данные успешно сохранены!</div>
+                <div>
+                    <h3 className={[styles.white_font, styles.center_text].join(' ')}>Присутствие</h3>
+                    <div className={styles.optionContainer}>
+                        {
+                            options.map(
+                                o => <VisitOption key={o.code} visitOption={o} chosenOption={chosenOption} clickHandler={clickHandler} />
+                            )
+                        }
+                    </div>
+                </div>
+                <div style={{display: 'flex', flexDirection: 'column'}}>
+                    <h3 className={[styles.white_font, styles.center_text].join(' ')}>{inform} нам об аллергии</h3>
+                    <input onFocus={focusHandler} onBlur={focusHandler} onChange={e => setAllergy(e.target.value)} className={[styles.white_font, styles.green].join(' ')} type='text' value={allergy} />
+                    <div style={{ transition: 'all .4s' }} className={[activeInfo ? styles.white_font : styles.green_font].join(' ')}>{your} данные успешно сохранены!</div>
+                    <button onClick={buttonHanlder}>Сохранить</button>
+                </div>
             </div>
         </div>
     )

@@ -328,6 +328,9 @@ h2.dressCodeFirst {
     .flex_toggle_direction {
         flex-direction: row;
     }
+    .nameContainer {
+        align-items: baseline;
+    }
 
     .main_image_group img {
         animation: none;
@@ -413,6 +416,9 @@ h2.dressCodeFirst {
     }
     .mainContainer {
         height: 100%;
+    }
+    .confirm {
+        font-size: 1.2rem;
     }
 }
 
