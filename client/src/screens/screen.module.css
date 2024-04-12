@@ -313,6 +313,10 @@ h2.dressCodeFirst {
     animation-iteration-count: infinite;
 }
 
+.mainContainer {
+    justify-content: space-evenly;
+}
+
 @media (min-width: 500px) {
 
     .optionContainer,
@@ -399,6 +403,9 @@ h2.dressCodeFirst {
 
     .whatsapp {
         margin: 1.5rem 0;
+    }
+    .mainContainer {
+        height: 100%;
     }
 }
 
