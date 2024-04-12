@@ -30,7 +30,7 @@ const Welcome = ({ link }) => {
                 <Rectangle />
                 <img src={png} alt='main' />
             </div>
-            <div className={styles.flex}>
+            <div style={{marginBottom: '3rem'}} className={styles.flex}>
                 <h3 className={[styles.green_font, styles.center_text].join(' ')}>
                     {`${dear} ${link.name}!`}
                 </h3>
