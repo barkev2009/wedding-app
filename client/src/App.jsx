@@ -1,5 +1,4 @@
 import { BrowserRouter } from 'react-router-dom';
-import Blocker from './components/Blocker';
 import { observer } from 'mobx-react-lite';
 import AppRouter from './routes/AppRouter';
 import { injectStores } from '@mobx-devtools/tools';
@@ -26,7 +25,6 @@ const App = observer(
       <>
         <YMInitializer accounts={[96989883]} options={{ clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true }} />
         <BrowserRouter>
-          <Blocker />
           <AppRouter />
         </BrowserRouter>
       </>

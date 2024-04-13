@@ -3,6 +3,7 @@ import styles from '../screens/screen.module.css';
 import { getCookie, setCookie } from '../utils/cookies';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ADMIN_ROUTE } from '../const';
+import Blocker from '../components/Blocker';
 
 const Main = () => {
 
@@ -45,6 +46,7 @@ const Main = () => {
 
   return (
     <div className={[styles.screen, styles.green, styles.programme].join(' ')}>
+      <Blocker />
       <h1 className={[styles.white_font, styles.center_text, styles.flex, styles.toggle_br].join(' ')}>
         Григорий <br /> и <br /> Анна
       </h1>

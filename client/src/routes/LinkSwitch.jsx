@@ -7,6 +7,7 @@ import NoData from './NoData';
 import Public from './Public';
 import { editAPI, getLink } from '../api/link';
 import styles from '../screens/screen.module.css';
+import Blocker from '../components/Blocker';
 
 export const LinkContext = createContext();
 
@@ -47,6 +48,7 @@ const LinkSwitch = observer(
       return <NoData />
     }
     return <LinkContext.Provider value={{ editHandler }}>
+      <Blocker />
       <Public link={link} />
     </LinkContext.Provider>
   }

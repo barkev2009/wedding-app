@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from '../components/Link';
 import { createAPI, deleteAPI, editAPI, getAllLinks } from '../api/link';
+import { exportHandler } from '../handlers';
 
 const Admin = () => {
 
@@ -46,15 +47,16 @@ const Admin = () => {
   );
 
   return (
-    <div style={{padding: '10px'}}>
+    <div style={{ padding: '10px' }}>
+      <button className='btn btn-outline-success mb-3' onClick={exportHandler(links)}>Скачать отчет</button>
       <form onSubmit={createHandler}>
-        <label className="form-label" style={{fontWeight: 'bold'}}>Добавить новый линк</label>
+        <label className="form-label" style={{ fontWeight: 'bold' }}>Добавить новый линк</label>
         <div className="input-group mb-3">
           <input value={name} onChange={e => setName(e.target.value)} type="text" className="form-control" placeholder="Имя линка" aria-describedby="button-addon2" />
           <button disabled={name === ''} className="btn btn-outline-primary" type="submit">Создать</button>
         </div>
       </form>
-      <div className="accordion accordion-flush" id="accordionFlushExample">
+      <div style={{height: "70vh", overflowY: 'scroll', border: '1px solid #e0e0e0', borderRadius: '10px'}} className="accordion accordion-flush" id="accordionFlushExample">
         {
           links.map(
             link => <Link key={link.id} link={link} deleteHandler={deleteHandler} editHandler={editHandler} />
