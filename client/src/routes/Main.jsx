@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../screens/screen.module.css';
 import { getCookie, setCookie } from '../utils/cookies';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { ADMIN_ROUTE } from '../const';
 
 const Main = () => {
 
   const location = useLocation();
+  const navigate = useNavigate();
   const [linkUUID, setLinkUUID] = useState(getCookie('ga-wed-link_uuid') || '');
   const [link, setLink] = useState(linkUUID ? location.pathname + linkUUID : null);
   const [error, setError] = useState(link ? true : false);
@@ -29,6 +31,9 @@ const Main = () => {
         setLink(null);
       }
     } else {
+      if (linkUUID === 'auth') {
+        navigate(ADMIN_ROUTE);
+      }
       setLinkUUID(getCookie('ga-wed-link_uuid') || '');
       const err = document.getElementById('error');
       if (err) {
