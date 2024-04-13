@@ -79,6 +79,7 @@ const Form = ({ link }) => {
                 <div className={styles.nameContainer}>
                     <h3 className={[styles.white_font].join(' ')}>Имя Фамилия</h3>
                     <input style={{border: 'none', borderBottom: '1px solid var(--white)'}} onFocus={focusHandler} onBlur={focusHandler} onChange={e => setName(e.target.value)} className={[styles.white_font, styles.green].join(' ')} type='text' value={name} />
+                    <div style={{ transition: 'all .4s' }} className={[activeInfo ? styles.white_font : styles.green_font].join(' ')}>{your} данные успешно сохранены!</div>
                 </div>
                 <div className={styles.toggle_mt}>
                     <h3 className={[styles.white_font].join(' ')}>Присутствие</h3>
