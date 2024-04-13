@@ -79,8 +79,8 @@ const Form = ({ link }) => {
                     <h3 className={[styles.white_font].join(' ')}>Имя Фамилия</h3>
                     <h3 style={{fontSize: '1.2rem'}} className={[styles.white_font].join(' ')}>{link.name}</h3>
                 </div>
-                <div>
-                    <h3 className={[styles.white_font, styles.center_text].join(' ')}>Присутствие</h3>
+                <div className={styles.toggle_mt}>
+                    <h3 className={[styles.white_font].join(' ')}>Присутствие</h3>
                     <div className={styles.optionContainer}>
                         {
                             options.map(
@@ -89,11 +89,11 @@ const Form = ({ link }) => {
                         }
                     </div>
                 </div>
-                <div style={{display: 'flex', flexDirection: 'column'}}>
-                    <h3 className={[styles.white_font, styles.center_text].join(' ')}>{inform} нам об аллергии</h3>
-                    <input onFocus={focusHandler} onBlur={focusHandler} onChange={e => setAllergy(e.target.value)} className={[styles.white_font, styles.green].join(' ')} type='text' value={allergy} />
+                <div className={styles.toggle_mt} style={{display: 'flex', flexDirection: 'column'}}>
+                    <h3 className={[styles.white_font].join(' ')}>{inform} нам об аллергии</h3>
+                    <input style={{border: 'none', borderBottom: '1px solid var(--white)'}} onFocus={focusHandler} onBlur={focusHandler} onChange={e => setAllergy(e.target.value)} className={[styles.white_font, styles.green].join(' ')} type='text' value={allergy} />
                     <div style={{ transition: 'all .4s' }} className={[activeInfo ? styles.white_font : styles.green_font].join(' ')}>{your} данные успешно сохранены!</div>
-                    <button onClick={buttonHanlder}>Сохранить</button>
+                    <button style={{width: '35%', margin: '0 auto', fontSize: '1.3rem'}} className={[styles.save].join(' ')} onClick={buttonHanlder}>Сохранить</button>
                 </div>
             </div>
         </div>

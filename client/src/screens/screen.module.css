@@ -41,10 +41,54 @@ h3 {
     scroll-snap-align: start;
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
-    padding: 0 10px;
+    padding: 10px;
     font-family: var(--default-font);
     overflow: hidden;
     position: relative;
+}
+
+input.form {
+    position: relative;
+    border: none;
+    border-bottom: 1px solid var(--white);
+    background-color: var(--green);
+    color: var(--white);
+    transition: all .2s;
+}
+input.form:focus {
+    border-color: var(--white);
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    var(--white);
+    opacity: 0.5;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    var(--white);
+    opacity: 0.5;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    var(--white);
+    opacity: 0.5;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:    var(--white);
+    opacity: 0.5;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+    color:    var(--white);
+    opacity: 0.5;
+}
+::placeholder { /* Most modern browsers support this now. */
+    color:    var(--white);
+    opacity: 0.5;
+}
+
+button.save {
+    background-color: var(--white);
+    color: var(--green);
+    border: none;
+    border-radius: 10px;
 }
 
 .center_text {
@@ -131,13 +175,14 @@ h3 {
     justify-content: space-evenly;
 }
 
+.optionContainer {
+    align-items: flex-start;
+}
+
 /* Определяем размещение по горизонтали элементов обернутых в label */
 .formRadioHidden {
-    display: flex;
-    flex-direction: row;
-    height: 40px;
     position: relative;
-    align-items: center;
+    margin-right: 0.5rem;
 }
 
 
@@ -157,8 +202,8 @@ h3 {
     -moz-appearance: none;
     display: inline-block;
     position: relative;
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
     border-radius: 50%;
     margin-right: 5px;
     border: 1px solid var(--white);
@@ -187,8 +232,8 @@ h3 {
 .formRadioHidden input:checked+.radio::before {
     content: '';
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background-color: var(--green);
     top: 50%;
@@ -321,15 +366,27 @@ h2.dressCodeFirst {
     justify-content: space-evenly;
 }
 
+.toggle_mt {
+    margin-top: 1rem;
+}
+
 @media (min-width: 500px) {
+    .screen {
+        padding: 10px;
+    }
 
     .optionContainer,
     .nameContainer,
     .flex_toggle_direction {
         flex-direction: row;
     }
+    .optionContainer {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
     .nameContainer {
         align-items: baseline;
+        justify-content: space-between;
     }
 
     .main_image_group img {
@@ -419,6 +476,9 @@ h2.dressCodeFirst {
     }
     .confirm {
         font-size: 1.2rem;
+    }
+    .toggle_mt {
+        margin-top: 0;
     }
 }
 
