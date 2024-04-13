@@ -34,7 +34,7 @@ const Organization = ({ link }) => {
                         торжеством, с радостью ответит наш
                         организатор Алёна:</h3>
                     <h3 className={[styles.green_font, styles.center_text].join(' ')}>
-                        <a className={[styles.green_font, styles.center_text].join(' ')} href="tel:+79537672033">+7 (953) 767-20-33</a>
+                        <a style={{textDecoration: 'none', borderBottom: '2px solid var(--green)'}} className={[styles.green_font, styles.center_text].join(' ')} href="tel:+79537672033">+7 (953) 767-20-33</a>
                     </h3>
                 </div>
                 <a className={styles.whatsapp} aria-label="Chat on WhatsApp" href={`https://wa.me/+79537672033?text=${generatedText}`}>

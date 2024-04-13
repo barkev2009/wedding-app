@@ -281,7 +281,8 @@ h2.dressCodeFirst {
 .dressCode,
 .programme,
 .details,
-.organization {
+.organization,
+div.form {
     display: flex;
     flex-direction: column;
 }
@@ -289,7 +290,8 @@ h2.dressCodeFirst {
 .timePlace>h1,
 .programme>h1,
 .details>h1,
-.organization>h1 {
+.organization>h1,
+div.form>h1 {
     flex: 1 1 0;
     display: flex;
     align-items: center;
@@ -305,6 +307,9 @@ h2.dressCodeFirst {
 .programme>div,
 .organization>div {
     flex: 4 1 0;
+}
+div.form>div {
+    flex: 7 1 0;
 }
 .organization>div {
     margin-bottom: 4rem;
@@ -420,7 +425,8 @@ h2.dressCodeFirst {
     .dressCode,
     .programme,
     .details,
-    .organization {
+    .organization,
+    div.form {
         flex-direction: row;
         align-items: center;
     }
@@ -428,7 +434,8 @@ h2.dressCodeFirst {
     .timePlace>div,
     .dressCode>div,
     .programme>div,
-    .organization>div {
+    .organization>div,
+    div.form>div {
         flex: 1 1 0;
     }
 
