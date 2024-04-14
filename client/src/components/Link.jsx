@@ -28,7 +28,7 @@ const Link = ({ link, deleteHandler, editHandler }) => {
         <div className='accordion-item' style={{ position: 'relative' }}>
             <button onClick={() => setActive(true)} type="button" className="btn-close" style={{ position: 'absolute', zIndex: 4, left: '10px', top: '15px' }} />
             <h2 onClick={() => setCollapsed(!collapsed)} className="accordion-header" id={'flush-Heading-' + link.link_uuid}>
-                <button style={{ paddingLeft: '50px' }} className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target={'#flush-collapse-' + link.link_uuid} aria-expanded="false" aria-controls={'flush-collapse-' + link.link_uuid}>
+                <button style={{ paddingLeft: '50px', backgroundColor: check ? 'aquamarine' : 'LightCoral' }} className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target={'#flush-collapse-' + link.link_uuid} aria-expanded="false" aria-controls={'flush-collapse-' + link.link_uuid}>
                     {link.name}
                 </button>
             </h2>

@@ -12,8 +12,10 @@ export const createManyAPI = async (names) => {
     let resp, name;
     for (let i = 0; i < names.length; i++) {
         name = names[i]
-        resp = await $authHost.post('api/link', { name });
-        dataArray.push(resp.data);
+        if (name !== '') {
+            resp = await $authHost.post('api/link', { name });
+            dataArray.push(resp.data);
+        }
     }
     // console.log('createManyAPI', dataArray.length);
     return dataArray;
