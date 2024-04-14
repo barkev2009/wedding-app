@@ -55,32 +55,44 @@ input.form {
     color: var(--white);
     transition: all .2s;
 }
+
 input.form:focus {
     border-color: var(--white);
 }
 
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    var(--white);
+::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: var(--white);
     opacity: 0.5;
 }
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    var(--white);
+
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: var(--white);
     opacity: 0.5;
 }
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:    var(--white);
+
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: var(--white);
     opacity: 0.5;
 }
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color:    var(--white);
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: var(--white);
     opacity: 0.5;
 }
-::-ms-input-placeholder { /* Microsoft Edge */
-    color:    var(--white);
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: var(--white);
     opacity: 0.5;
 }
-::placeholder { /* Most modern browsers support this now. */
-    color:    var(--white);
+
+::placeholder {
+    /* Most modern browsers support this now. */
+    color: var(--white);
     opacity: 0.5;
 }
 
@@ -308,9 +320,11 @@ div.form>h1 {
 .organization>div {
     flex: 4 1 0;
 }
+
 div.form>div {
     flex: 7 1 0;
 }
+
 .organization>div {
     margin-bottom: 4rem;
 }
@@ -361,6 +375,7 @@ div.form>div {
     bottom: 0;
     transition: all .3s;
 }
+
 .whatsapp {
     animation-name: whatsapp;
     animation-duration: 4s;
@@ -375,6 +390,66 @@ div.form>div {
     margin-top: 1rem;
 }
 
+.dot {
+    border-radius: 50%;
+    background-color: var(--white);
+    position: absolute;
+    animation-name: dot-up;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    bottom: -10px;
+}
+
+.dot.main {
+    width: 10px;
+    height: 10px;
+}
+
+.dot.back {
+    width: 6px;
+    height: 6px;
+    opacity: .5;
+}
+
+.g_letter {
+    font-size: 8rem;
+    position: absolute;
+    left: 25%;
+    top: 25%;
+    color: var(--green);
+    animation-name: letter-popup;
+    animation-iteration-count: 1;
+    animation-delay: 1s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.and_letter {
+    font-size: 6rem;
+    position: absolute;
+    left: 48%;
+    top: 36%;
+    color: var(--green);
+    animation-name: letter-popup;
+    animation-iteration-count: 1;
+    animation-delay: 3s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.a_letter {
+    font-size: 8rem;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    color: var(--green);
+    animation-name: letter-popup;
+    animation-iteration-count: 1;
+    animation-delay: 2s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
 @media (min-width: 500px) {
     .screen {
         padding: 10px;
@@ -385,10 +460,12 @@ div.form>div {
     .flex_toggle_direction {
         flex-direction: row;
     }
+
     .optionContainer {
         flex-wrap: wrap;
         justify-content: flex-start;
     }
+
     .nameContainer {
         align-items: baseline;
         justify-content: space-between;
@@ -455,6 +532,7 @@ div.form>div {
     .organization h3 {
         font-size: 1.3rem;
     }
+
     .organization>div {
         margin-bottom: 0;
     }
@@ -478,14 +556,30 @@ div.form>div {
     .whatsapp {
         margin: 1.5rem 0;
     }
+
     .mainContainer {
         height: 100%;
     }
+
     .confirm {
         font-size: 1.2rem;
     }
+
     .toggle_mt {
         margin-top: 0;
+    }
+
+    .g_letter {
+        top: 10%;
+        left: 35%;
+    }
+
+    .and_letter {
+        top: 29%;
+    }
+
+    .a_letter {
+        top: 35%;
     }
 }
 
@@ -514,6 +608,7 @@ div.form>div {
         fill: var(--green);
     }
 }
+
 @keyframes wine-fill {
     0% {
         height: 10px;
@@ -523,37 +618,65 @@ div.form>div {
         height: 43px;
     }
 }
+
 @keyframes whatsapp {
     0% {
         margin-left: 0;
         margin-right: 0;
     }
+
     16% {
         margin-left: 0;
         margin-right: 0;
     }
+
     18% {
         margin-left: var(--whatsapp-margin);
         margin-right: 0;
     }
+
     20% {
         margin-left: 0;
         margin-right: var(--whatsapp-margin);
     }
+
     22% {
         margin-left: var(--whatsapp-margin);
         margin-right: 0;
     }
+
     24% {
         margin-left: 0;
         margin-right: var(--whatsapp-margin);
     }
+
     26% {
         margin-left: 0;
         margin-right: 0;
     }
+
     100% {
         margin-left: 0;
         margin-right: 0;
+    }
+}
+
+@keyframes dot-up {
+    0% {
+        bottom: -10px;
+    }
+
+    100% {
+        bottom: 100%;
+    }
+}
+
+@keyframes letter-popup {
+    0% {
+        color: var(--green);
+    }
+
+    100% {
+        color: var(--white);
     }
 }
