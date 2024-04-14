@@ -7,6 +7,18 @@ export const createAPI = async (name) => {
     return data;
 }
 
+export const createManyAPI = async (names) => {
+    const dataArray = [];
+    let resp, name;
+    for (let i = 0; i < names.length; i++) {
+        name = names[i]
+        resp = await $authHost.post('api/link', { name });
+        dataArray.push(resp.data);
+    }
+    // console.log('createManyAPI', dataArray.length);
+    return dataArray;
+}
+
 export const editAPI = async ({ link_uuid, name, allergy, code, gender, link_sent, send_telegram }) => {
     const { data } = await $host.put('api/link/' + link_uuid, { name, allergy, code, gender, link_sent, send_telegram });
     // console.log('editAPI', data);
