@@ -4,6 +4,7 @@ import { GENDERS } from '../const';
 import png from '../images/envelope.png';
 import glass from '../images/glass.png';
 import { useWineIntersectionObserver } from '../hooks';
+import ym from 'react-yandex-metrika';
 
 const Details = ({ link }) => {
 
@@ -40,7 +41,7 @@ const Details = ({ link }) => {
                     нашей семейной винотеки.</h3>
                 <div className={styles.svgContainer}>
                     <div style={{position: 'relative', overflow: 'hidden'}}>
-                        <img height='50px' src={glass} alt='glass' style={{zIndex: 1, position: 'relative'}} />
+                        <img onClick={() => ym('reachGoal','click-glass')}  height='50px' src={glass} alt='glass' style={{zIndex: 1, position: 'relative'}} />
                         <div className={styles.wine}></div>
                     </div>
                 </div>

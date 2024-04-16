@@ -351,10 +351,10 @@ div.form>div {
 }
 
 .arrowDown {
-    fill: var(--back);
+    fill: var(--green);
     animation-name: slide-down;
     animation-duration: 5s;
-    animation-delay: 5s;
+    animation-delay: 15s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     transition: all .3s;
@@ -369,7 +369,8 @@ div.form>div {
 
 .wine {
     background-color: #7b0323;
-    width: 28px;
+    width: 27px;
+    left: 1px;
     height: 10px;
     position: absolute;
     bottom: 0;
@@ -600,12 +601,12 @@ div.form>div {
 @keyframes slide-down {
     0% {
         bottom: 2.5rem;
-        fill: var(--green);
+        fill: var(--white);
     }
 
     100% {
         bottom: -2.5rem;
-        fill: var(--green);
+        fill: var(--white);
     }
 }
 

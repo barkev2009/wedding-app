@@ -21,18 +21,21 @@ const Main = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
-    const check = uuidRegex.test(linkUUID);
-    if (check || linkUUID === '') {
-      setCookie('ga-wed-link_uuid', linkUUID);
-      if (linkUUID !== '') {
-        setLink(location.pathname + linkUUID);
+    const url = process.env.REACT_APP_URL;
+    const newLink = linkUUID.replace(`http://${url}/`, '').replace(`https://${url}/`, '').replace(`http://www.${url}/`, '').replace(`https://www.${url}/`, '').replace(`www.${url}/`, '').replace(`${url}/`, '')
+    const check = uuidRegex.test(newLink);
+    if (check || newLink === '') {
+      setCookie('ga-wed-link_uuid', newLink);
+      setLinkUUID(newLink);
+      if (newLink !== '') {
+        setLink(location.pathname + newLink);
         setError(false);
       } else {
         setError(true);
         setLink(null);
       }
     } else {
-      if (linkUUID === 'auth') {
+      if (newLink === 'auth') {
         navigate(ADMIN_ROUTE);
       }
       setLinkUUID(getCookie('ga-wed-link_uuid') || '');

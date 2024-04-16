@@ -3,7 +3,6 @@ import styles from './screen.module.css';
 import { GENDERS } from '../const';
 import png from '../images/main.png';
 import Rectangle from '../svg/Rectangle';
-import ArrowDown from '../svg/ArrowDown';
 
 const Welcome = ({ link }) => {
 
@@ -38,7 +37,6 @@ const Welcome = ({ link }) => {
                     {`Мы приглашаем ${you}`}<br />на нашу свадьбу.
                 </h3>
             </div>
-            <ArrowDown />
         </div>
     )
 }

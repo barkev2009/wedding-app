@@ -25,7 +25,12 @@ const Form = ({ link }) => {
         }
     }
     const buttonHanlder = () => {
-        ym('reachGoal','change-allergy');
+        if (name !== link.name) {
+            ym('reachGoal','change-name');
+        }
+        if (allergy !== link.allergy) {
+            ym('reachGoal','change-allergy');
+        }
         setActiveInfo(true);
         editHandler({name, allergy, visitOption: chosenOption})();
         setTimeout(() => setActiveInfo(false), 3000);
