@@ -7,6 +7,7 @@ const Start = () => {
 
   const clickHandler = (e) => {
     ym('reachGoal','click-start');
+    const check = Math.random();
     const elem = document.createElement('div');
     elem.style.left = e.clientX + "px";
     elem.style.top = e.clientY + "px";
@@ -16,20 +17,35 @@ const Start = () => {
     // elem.style.width = '20px';
     // elem.style.height = '20px';
     elem.classList.add(styles.dot);
-    elem.classList.add(styles.main);
+    check > 0.5 ? elem.classList.add(styles.main) : elem.classList.add(styles.back);
     document.getElementById('start_screen').appendChild(elem);
-    for (let i = 0; i < e.clientY + 100; i++) {
+    if (check > 0.5) {
+      for (let i = 0; i < e.clientY + 100; i++) {
+        setTimeout(
+          () => {
+            elem.style.top = e.clientY - i + "px";
+          }, i * 10
+        );
+      }
       setTimeout(
         () => {
-          elem.style.top = e.clientY - i + "px";
-        }, i * 10
+          elem.remove()
+        }, (e.clientY + 100) * 10
+      );
+    } else {
+      for (let i = 0; i < e.clientY + 100; i++) {
+        setTimeout(
+          () => {
+            elem.style.top = e.clientY - i + "px";
+          }, i * 30
+        );
+      }
+      setTimeout(
+        () => {
+          elem.remove()
+        }, (e.clientY + 100) * 30
       );
     }
-    setTimeout(
-      () => {
-        elem.remove()
-      }, (e.clientY + 100) * 10
-    );
   }
 
   return (
