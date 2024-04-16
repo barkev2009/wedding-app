@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './screen.module.css';
 import ArrowDown from '../svg/ArrowDown';
 import ym from 'react-yandex-metrika';
+import Pointer from '../svg/Pointer';
 
 const Start = () => {
 
@@ -50,6 +51,7 @@ const Start = () => {
 
   return (
     <div id="start_screen" onClick={clickHandler} className={[styles.screen, styles.flex_center, styles.green].join(' ')}>
+      <Pointer />
       <h1 className={[styles.white_font, styles.g_letter].join(' ')}>G</h1>
       <h1 style={{ fontFamily: 'Mr De Haviland' }} className={[styles.white_font, styles.and_letter].join(' ')}>&</h1>
       <h1 className={[styles.white_font, styles.a_letter].join(' ')}>A</h1>

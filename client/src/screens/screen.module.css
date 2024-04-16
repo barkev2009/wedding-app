@@ -355,9 +355,22 @@ div.form>div {
     animation-name: slide-down;
     animation-duration: 5s;
     animation-delay: 15s;
-    animation-iteration-count: 3;
+    animation-iteration-count: 5;
     animation-fill-mode: forwards;
     transition: all .3s;
+}
+
+.pointer {
+    position: absolute;
+    top: 20%;
+    left: 80%;
+    transition: all 0.3s;
+    fill: var(--green);
+    animation-name: pointer-show;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 5s;
 }
 
 .svgContainer {
@@ -679,5 +692,36 @@ div.form>div {
 
     100% {
         color: var(--white);
+    }
+}
+
+@keyframes pointer-show {
+    0% {
+        fill: var(--green);
+        transform: scale(1);
+    }
+    35% {
+        fill: var(--green);
+        transform: scale(1);
+    }
+    45% {
+        fill: var(--white);
+        transform: scale(1);
+    }
+    50% {
+        fill: var(--white);
+        transform: scale(0.8);
+    }
+    55% {
+        fill: var(--white);
+        transform: scale(1);
+    }
+    65% {
+        fill: var(--green);
+        transform: scale(1);
+    }
+    100% {
+        fill: var(--green);
+        transform: scale(1);
     }
 }
