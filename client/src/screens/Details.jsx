@@ -68,6 +68,19 @@ const Details = ({ link }) => {
         }
     }
 
+    const clickEnvelopeHandler = () => {
+        ym('reachGoal', 'click-envelope')
+        document.getElementById('envelope').innerHTML += '$';
+        document.getElementById('envelope').classList.add(styles.animate);
+        document.getElementById('envelope_img').classList.add(styles.animate);
+        setTimeout(
+            () => {
+                document.getElementById('envelope').classList.remove(styles.animate);
+                document.getElementById('envelope_img').classList.remove(styles.animate);
+            }, 900
+        );
+    }
+
 
     let decide, your, think;
     switch (link.gender) {
@@ -107,7 +120,8 @@ const Details = ({ link }) => {
                     {think} голову над подарком -
                     мы будем рады {your}.</h3>
                 <div className={styles.svgContainer}>
-                    <img src={png} alt='envelope' />
+                    <h2 id='envelope' className={[styles.money].join(' ')}>+$</h2>
+                    <img id='envelope_img' onClick={clickEnvelopeHandler} className={[styles.envelope].join(' ')} src={png} alt='envelope' />
                 </div>
             </div>
         </div>

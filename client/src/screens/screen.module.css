@@ -380,6 +380,32 @@ div.form>div {
     position: relative;
 }
 
+.money {
+    position: absolute;
+    font-size: 3rem;
+    left: 60%;
+    top: 20%;
+    color: var(--back);
+    transition: all .2s;
+}
+.money.animate {
+    animation-name: money-up;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: backwards;
+}
+
+.envelope {
+    transition: all .2s;
+}
+.envelope.animate {
+    animation-name: envelope-scale;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: backwards;
+}
+
+
 .wine {
     background-color: #7b0323;
     width: 27px;
@@ -595,6 +621,12 @@ div.form>div {
     .a_letter {
         top: 35%;
     }
+    .money {
+        top: 10%;
+    }
+    .money.animate {
+        animation-name: money-up-h;
+    }
 }
 
 @keyframes oscillate {
@@ -722,6 +754,37 @@ div.form>div {
     }
     100% {
         fill: var(--green);
+        transform: scale(1);
+    }
+}
+@keyframes money-up {
+    0% {
+        color: var(--green);
+        top: 20%;
+    }
+    100% {
+        color: var(--back);
+        top: 0;
+    }
+}
+@keyframes money-up-h {
+    0% {
+        color: var(--green);
+        top: 10%;
+    }
+    100% {
+        color: var(--back);
+        top: 0;
+    }
+}
+@keyframes envelope-scale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
         transform: scale(1);
     }
 }
