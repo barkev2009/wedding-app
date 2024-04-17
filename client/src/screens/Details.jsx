@@ -120,7 +120,7 @@ const Details = ({ link }) => {
                     {think} голову над подарком -
                     мы будем рады {your}.</h3>
                 <div className={styles.svgContainer}>
-                    <h2 id='envelope' className={[styles.money].join(' ')}>+$</h2>
+                    <h2 id='envelope' className={[styles.money].join(' ')}>+</h2>
                     <img id='envelope_img' onClick={clickEnvelopeHandler} className={[styles.envelope].join(' ')} src={png} alt='envelope' />
                 </div>
             </div>
