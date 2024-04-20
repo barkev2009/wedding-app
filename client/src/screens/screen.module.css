@@ -350,6 +350,22 @@ div.form>div {
     font-size: 2.5rem;
 }
 
+.form .nameContainer input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--white);
+}
+
+.form .nameContainer .name {
+    display: block;
+    width: 100%;
+}
+
+.confirm {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
 .arrowDown {
     fill: var(--green);
     animation-name: slide-down;
@@ -496,7 +512,6 @@ div.form>div {
     }
 
     .optionContainer,
-    .nameContainer,
     .flex_toggle_direction {
         flex-direction: row;
     }
@@ -601,8 +616,17 @@ div.form>div {
         height: 100%;
     }
 
+    .form .nameContainer input {
+        width: 48%;
+    }
+
+    .form .nameContainer .name {
+        display: flex;
+        justify-content: space-between;
+    }
+
     .confirm {
-        font-size: 1.2rem;
+        font-size: 0.8rem;
     }
 
     .toggle_mt {

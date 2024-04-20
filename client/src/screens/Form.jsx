@@ -18,21 +18,21 @@ const Form = ({ link }) => {
         if (e.target.id.includes('radio-')) {
             const newOption = options.filter(item => item.code === e.target.id.replace('radio-', '').replace('parent-', ''))[0];
             if (newOption.code !== chosenOption.code) {
-                ym('reachGoal','change-presence');
+                ym('reachGoal', 'change-presence');
                 setChosenOption(newOption);
-                editHandler({visitOption: newOption})();
+                editHandler({ visitOption: newOption })();
             }
         }
     }
     const buttonHanlder = () => {
         if (name !== link.name) {
-            ym('reachGoal','change-name');
+            ym('reachGoal', 'change-name');
         }
         if (allergy !== link.allergy) {
-            ym('reachGoal','change-allergy');
+            ym('reachGoal', 'change-allergy');
         }
         setActiveInfo(true);
-        editHandler({name, allergy, visitOption: chosenOption})();
+        editHandler({ name, allergy, visitOption: chosenOption })();
         setTimeout(() => setActiveInfo(false), 3000);
     }
     const focusHandler = () => {
@@ -77,13 +77,15 @@ const Form = ({ link }) => {
             <div className={styles.flex}>
                 <h3 className={[styles.white_font, styles.center_text, styles.confirm].join(' ')}>
                     Пожалуйста, {confirm}
-                    присутствие на нашем празднике до 
+                    присутствие на нашем празднике до
                     <b> 01.07.2024</b> любым удобным
                     для {you} способом.
                 </h3>
                 <div className={styles.nameContainer}>
-                    <h3 className={[styles.white_font].join(' ')}>Имя Фамилия</h3>
-                    <input style={{border: 'none', borderBottom: '1px solid var(--white)'}} onFocus={focusHandler} onBlur={focusHandler} onChange={e => setName(e.target.value)} className={[styles.white_font, styles.green].join(' ')} type='text' value={name} />
+                    <div className={styles.name}>
+                        <h3 className={[styles.white_font].join(' ')}>Имя Фамилия</h3>
+                        <input onFocus={focusHandler} onBlur={focusHandler} onChange={e => setName(e.target.value)} className={[styles.white_font, styles.green].join(' ')} type='text' value={name} />
+                    </div>
                     <div style={{ transition: 'all .4s' }} className={[activeInfo ? styles.white_font : styles.green_font].join(' ')}>{your} данные успешно сохранены!</div>
                 </div>
                 <div className={styles.toggle_mt}>
@@ -96,11 +98,11 @@ const Form = ({ link }) => {
                         }
                     </div>
                 </div>
-                <div className={styles.toggle_mt} style={{display: 'flex', flexDirection: 'column'}}>
+                <div className={styles.toggle_mt} style={{ display: 'flex', flexDirection: 'column' }}>
                     <h3 className={[styles.white_font].join(' ')}>{inform} нам об аллергии</h3>
-                    <input style={{border: 'none', borderBottom: '1px solid var(--white)'}} onFocus={focusHandler} onBlur={focusHandler} onChange={e => setAllergy(e.target.value)} className={[styles.white_font, styles.green].join(' ')} type='text' value={allergy} />
+                    <input style={{ border: 'none', borderBottom: '1px solid var(--white)' }} onFocus={focusHandler} onBlur={focusHandler} onChange={e => setAllergy(e.target.value)} className={[styles.white_font, styles.green].join(' ')} type='text' value={allergy} />
                     <div style={{ transition: 'all .4s' }} className={[activeInfo ? styles.white_font : styles.green_font].join(' ')}>{your} данные успешно сохранены!</div>
-                    <button style={{width: '35%', margin: '0 auto', marginTop: '1rem', fontSize: '1.3rem'}} className={[styles.save].join(' ')} onClick={buttonHanlder}>Сохранить</button>
+                    <button style={{ width: '35%', margin: '0 auto', marginTop: '1rem', fontSize: '1.3rem' }} className={[styles.save].join(' ')} onClick={buttonHanlder}>Сохранить</button>
                 </div>
             </div>
         </div>
