@@ -669,7 +669,7 @@ div.form>div {
 
 @keyframes slide-down {
     0% {
-        bottom: 2.5rem;
+        bottom: 5rem;
         fill: var(--white);
     }
 
