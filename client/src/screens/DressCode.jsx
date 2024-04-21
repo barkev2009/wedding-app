@@ -33,7 +33,7 @@ const DressCode = ({ link }) => {
                     {your} присутствие!
                 </h2>
                 <h3 className={[styles.green_font, styles.center_text].join(' ')}>
-                    Но мы будем рады <br />
+                    Но мы будем рады, <br />
                     если в {support} <br />
                     цветовую гамму нашей свадьбы
                 </h3>

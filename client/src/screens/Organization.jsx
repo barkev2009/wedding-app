@@ -30,7 +30,7 @@ const Organization = ({ link }) => {
             <h1 className={[styles.green_font, styles.center_text].join(' ')}>Организация</h1>
             <div className={[styles.center_text, styles.flex_center].join(' ')}>
                 <div className={[styles.green_font, styles.center_text].join(' ')}>
-                    <h3>На все вопросы связанные с
+                    <h3>На все вопросы, связанные с
                         торжеством, с радостью ответит наш
                         организатор Алёна:</h3>
                     <h3 className={[styles.green_font, styles.center_text].join(' ')}>

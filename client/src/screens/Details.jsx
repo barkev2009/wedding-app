@@ -109,7 +109,7 @@ const Details = ({ link }) => {
                     Приятным комплиментом для нас будет,
                     если вместо живых цветов {decide} подарить нам бутылочку
                     красного полусладкого вина для
-                    нашей семейной винотеки.</h3>
+                    нашей семейной винотеки</h3>
                 <div className={styles.svgContainer}>
                     <div style={{position: 'relative', overflow: 'hidden'}}>
                         <img onClick={clickGlassHandler}  height='50px' src={glass} alt='glass' style={{zIndex: 1, position: 'relative'}} />
@@ -118,7 +118,7 @@ const Details = ({ link }) => {
                 </div>
                 <h3 className={[styles.green_font, styles.center_text].join(' ')}>
                     {think} голову над подарком -
-                    мы будем рады {your}.</h3>
+                    мы будем рады {your}</h3>
                 <div className={styles.svgContainer}>
                     <h2 id='envelope' className={[styles.money].join(' ')}>+</h2>
                     <img id='envelope_img' onClick={clickEnvelopeHandler} className={[styles.envelope].join(' ')} src={png} alt='envelope' />

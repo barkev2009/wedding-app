@@ -79,7 +79,7 @@ const Form = ({ link }) => {
                     Пожалуйста, {confirm}
                     присутствие на нашем празднике до
                     <b> 01.07.2024</b> любым удобным
-                    для {you} способом.
+                    для {you} способом
                 </h3>
                 <div className={styles.nameContainer}>
                     <div className={styles.name}>
