@@ -230,7 +230,15 @@ export const useRegistrationTimeIntersectionObserver = () => {
                     timeout = setTimeout(
                         () => {
                             guestTime.innerHTML = `${String(i + 1).padStart(2, '0')}:${guestTime.innerHTML.split(':')[1]}`;
-                        }, i * 50
+                        }, i * minValue / hourValue * 40
+                    )
+                    timeouts.push(timeout);
+                }
+                for (let i = 0; i < Number(minValue); i++) {
+                    timeout = setTimeout(
+                        () => {
+                            guestTime.innerHTML = `${guestTime.innerHTML.split(':')[0]}:${String(i + 1).padStart(2, '0')}`;
+                        }, i * 40
                     )
                     timeouts.push(timeout);
                 }
