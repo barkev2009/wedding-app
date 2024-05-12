@@ -9,7 +9,8 @@ const Link = sequelize.define(
         name: {type: DataTypes.STRING, allowNull: true, unique: false},
         allergy: {type: DataTypes.STRING, allowNull: true, defaultValue: 'Отсутствует', unique: false},
         gender: {type: DataTypes.STRING, allowNull: false, defaultValue: 'multi', unique: false},
-        link_sent: {type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false, unique: false}
+        link_sent: {type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false, unique: false},
+        is_official: {type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false, unique: false}
     }
 );
 

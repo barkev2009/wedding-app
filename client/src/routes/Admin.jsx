@@ -32,9 +32,9 @@ const Admin = () => {
     setNewLinks('');
   }
 
-  const editHandler = ({ link_uuid, name, allergy, code, gender, link_sent }) => {
+  const editHandler = ({ link_uuid, name, allergy, code, gender, link_sent, is_official }) => {
     return () => {
-      editAPI({ link_uuid, name, allergy, code, gender, link_sent, send_telegram: false }).then(
+      editAPI({ link_uuid, name, allergy, code, gender, link_sent, is_official, send_telegram: false }).then(
         ({ link }) => {
           setLinks([...links.filter(item => item.link_uuid !== link.link_uuid), link].sort((a, b) => a.name.localeCompare(b.name)));
         }

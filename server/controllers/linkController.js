@@ -30,7 +30,7 @@ class LinkController {
         tryCatchWrapper(
             async () => {
                 const { link_uuid } = req.params;
-                let { name, allergy, code, gender, link_sent, send_telegram } = req.body;
+                let { name, allergy, code, gender, link_sent, send_telegram, is_official } = req.body;
                 if (send_telegram === undefined) {
                     send_telegram = true;
                 }
@@ -46,12 +46,12 @@ class LinkController {
                     }
 
                     result = await Link.update(
-                        { name, allergy, gender, link_sent, visitOptionId: visitOption.id },
+                        { name, allergy, gender, link_sent, is_official, visitOptionId: visitOption.id },
                         { where: { link_uuid } }
                     );
                 } else {
                     result = await Link.update(
-                        { name, allergy, gender, link_sent },
+                        { name, allergy, gender, link_sent, is_official },
                         { where: { link_uuid } }
                     );
                 }

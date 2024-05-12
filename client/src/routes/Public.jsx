@@ -15,7 +15,7 @@ const Public = ({ link }) => {
             <Welcome link={link} />
             <TimePlace />
             <DressCode link={link} />
-            <Programme />
+            <Programme link={link} />
             <Details link={link} />
             <Form link={link} />
             <Organization link={link} />

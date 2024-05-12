@@ -202,3 +202,53 @@ export const useDiscoTimeIntersectionObserver = () => {
     );
 
 }
+export const useRegistrationTimeIntersectionObserver = () => {
+    let timeouts = [];
+    let options = {
+        root: document.querySelector(styles.programme),
+        rootMargin: "0px",
+        threshold: 1.0,
+    };
+    let guestTime, initialGuestTime, hourValue, minValue;
+    setTimeout(
+        () => {
+            guestTime = document.querySelector('.registrationTime');
+            if (guestTime) {
+                initialGuestTime = guestTime.innerHTML;
+                hourValue = initialGuestTime.split(':')[0];
+                minValue = initialGuestTime.split(':')[1];
+            }
+        }, 1000
+    )
+
+    const callback = (entries) => {
+        entries.forEach(entry => {
+            let timeout;
+            if (entry.isIntersecting) {
+                guestTime.innerHTML = '00:00';
+                for (let i = 0; i < Number(hourValue); i++) {
+                    timeout = setTimeout(
+                        () => {
+                            guestTime.innerHTML = `${String(i + 1).padStart(2, '0')}:${guestTime.innerHTML.split(':')[1]}`;
+                        }, i * 50
+                    )
+                    timeouts.push(timeout);
+                }
+            } else {
+                timeouts.forEach(t => clearTimeout(t));
+                timeouts = []
+                guestTime.innerHTML = initialGuestTime;
+            }
+        })
+    }
+
+    let observer = new IntersectionObserver(callback, options);
+    setTimeout(
+        () => {
+            if (document.querySelector('.registrationTime')) {
+                observer.observe(document.querySelector('.registrationTime'));
+            }
+        }, 1000
+    );
+
+}

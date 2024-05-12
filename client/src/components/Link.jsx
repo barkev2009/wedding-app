@@ -8,6 +8,7 @@ const Link = ({ link, deleteHandler, editHandler }) => {
     const [collapsed, setCollapsed] = useState();
     const [active, setActive] = useState(false);
     const [check, setCheck] = useState(link.link_sent);
+    const [isOfficial, setIsOfficial] = useState(link.is_official);
 
     const selectHandler = (e) => {
         editHandler({ link_uuid: link.link_uuid, gender: e.target.value })();
@@ -15,6 +16,10 @@ const Link = ({ link, deleteHandler, editHandler }) => {
     const checkHandler = () => {
         editHandler({ link_uuid: link.link_uuid, link_sent: !check })();
         setCheck(!check);
+    }
+    const isOfficialHandler = () => {
+        editHandler({ link_uuid: link.link_uuid, is_official: !isOfficial })();
+        setIsOfficial(!isOfficial);
     }
 
     useEffect(
@@ -38,10 +43,16 @@ const Link = ({ link, deleteHandler, editHandler }) => {
                         <div className="card-header" style={{ display: 'flex', justifyContent: 'space-between' }}>
                             <a href={`/${link.link_uuid}`} >{window.location.origin + '/' + link.link_uuid}</a>
                             <div className="form-check form-switch">
-                                <input style={{position: 'absolute', right: '5px'}} className="form-check-input" type="checkbox" checked={check} onChange={checkHandler} disabled={check} />
+                                <input style={{ position: 'absolute', right: '5px' }} className="form-check-input" type="checkbox" checked={check} onChange={checkHandler} disabled={check} />
                             </div>
                         </div>
                         <ul className="list-group list-group-flush">
+                            <li className="list-group-item">
+                                <div className="input-group mb-3">
+                                    <input type="checkbox" className="btn-check" onChange={isOfficialHandler} checked={isOfficial} id={"btn-check-outlined" + link.link_uuid} autoComplete="off" />
+                                    <label className="btn btn-outline-primary" htmlFor={"btn-check-outlined" + link.link_uuid}>Нужна официальная часть</label>
+                                </div>
+                            </li>
                             <li className="list-group-item">
                                 <div className="input-group mb-3">
                                     <span className="input-group-text">Пол</span>
