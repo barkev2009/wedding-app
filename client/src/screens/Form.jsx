@@ -61,7 +61,7 @@ const Form = ({ link }) => {
             confirm = 'ты подтвердила свое ';
             you = 'тебя';
             your = 'Твои';
-            inform = 'Сообщили ли ты';
+            inform = 'Сообщила ли ты';
             break;
         default:
             confirm = 'вы подтвердили ваше ';
