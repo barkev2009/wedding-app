@@ -8,7 +8,7 @@ const http = require('http');
 const router = require('./routers/index');
 const path = require('path');
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5005;
 const app = express()
 app.use(cors());
 app.use(express.json());

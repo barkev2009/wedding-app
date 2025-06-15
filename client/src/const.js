@@ -1,5 +1,6 @@
-export const ADMIN_ROUTE = '/admin';
-export const AUTH_ROUTE = '/auth';
+export const PUBLIC_URL = '/apps/wedding-app';
+export const ADMIN_ROUTE = PUBLIC_URL + '/admin';
+export const AUTH_ROUTE = PUBLIC_URL + '/auth';
 export const GENDERS = {
     'multi' : {
         name: 'Пара',

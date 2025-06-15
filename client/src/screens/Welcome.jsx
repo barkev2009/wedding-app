@@ -34,7 +34,7 @@ const Welcome = ({ link }) => {
                     {`${dear} ${link.name}!`}
                 </h3>
                 <h3 className={[styles.green_font, styles.center_text].join(' ')}>
-                    {`Мы приглашаем ${you}`}<br />на нашу свадьбу
+                    {`Мы были рады видеть ${you}`}<br />на нашей свадьбе!
                 </h3>
             </div>
         </div>

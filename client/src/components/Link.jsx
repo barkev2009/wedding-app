@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Modal from '../common/Modal';
-import { GENDERS } from '../const';
+import { GENDERS, PUBLIC_URL } from '../const';
 
 const Link = ({ link, deleteHandler, editHandler }) => {
 
@@ -41,7 +41,7 @@ const Link = ({ link, deleteHandler, editHandler }) => {
                 <div className="accordion-body" >
                     <div className="card">
                         <div className="card-header" style={{ display: 'flex', justifyContent: 'space-between' }}>
-                            <a href={`/${link.link_uuid}`} >{window.location.origin + '/' + link.link_uuid}</a>
+                            <a href={`${PUBLIC_URL}/${link.link_uuid}`} >{window.location.origin + `${PUBLIC_URL}/` + link.link_uuid}</a>
                             <div className="form-check form-switch">
                                 <input style={{ position: 'absolute', right: '5px' }} className="form-check-input" type="checkbox" checked={check} onChange={checkHandler} disabled={check} />
                             </div>

@@ -1,4 +1,4 @@
-import { ADMIN_ROUTE, AUTH_ROUTE } from "./const";
+import { ADMIN_ROUTE, AUTH_ROUTE, PUBLIC_URL } from "./const";
 import Admin from "./routes/Admin";
 import Auth from "./routes/Auth";
 import LinkSwitch from "./routes/LinkSwitch";
@@ -13,7 +13,7 @@ export const authRoutes = [
 
 export const publicRoutes = [
     {
-        path: '/',
+        path: PUBLIC_URL,
         Component: Main
     },
     {
@@ -21,7 +21,7 @@ export const publicRoutes = [
         Component: Auth
     },
     {
-        path: '/:link_uuid',
+        path: PUBLIC_URL +'/:link_uuid',
         Component: LinkSwitch
     }
 ]

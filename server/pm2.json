@@ -1,0 +1,11 @@
+{
+    "apps": [
+        {
+            "name": "wedding-app-server",
+            "script": "index.js",
+            "env": {
+                "PORT": 5005
+            }
+        }
+    ]
+}

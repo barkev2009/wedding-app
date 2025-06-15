@@ -52,22 +52,22 @@ const Form = ({ link }) => {
     let confirm, you, inform, your;
     switch (link.gender) {
         case GENDERS.male.code:
-            confirm = 'подтверди свое ';
+            confirm = 'ты подтвердил свое ';
             you = 'тебя';
             your = 'Твои';
-            inform = 'Сообщи';
+            inform = 'Сообщил ли ты';
             break;
         case GENDERS.female.code:
-            confirm = 'подтверди свое ';
+            confirm = 'ты подтвердила свое ';
             you = 'тебя';
             your = 'Твои';
-            inform = 'Сообщи';
+            inform = 'Сообщили ли ты';
             break;
         default:
-            confirm = 'подтвердите ваше ';
+            confirm = 'вы подтвердили ваше ';
             you = 'вас';
             your = 'Ваши';
-            inform = 'Сообщите';
+            inform = 'Сообщили ли вы';
             break;
     }
 
@@ -76,10 +76,8 @@ const Form = ({ link }) => {
             <h1 className={[styles.white_font, styles.center_text].join(' ')}>Анкета гостя</h1>
             <div className={styles.flex}>
                 <h3 className={[styles.white_font, styles.center_text, styles.confirm].join(' ')}>
-                    Пожалуйста, {confirm}
-                    присутствие на нашем празднике до
-                    <b> 01.07.2024</b> любым удобным
-                    для {you} способом
+                    В тот радостный день {confirm}
+                    присутствие на нашем празднике!
                 </h3>
                 <div className={styles.nameContainer}>
                     <div className={styles.name}>
@@ -99,10 +97,10 @@ const Form = ({ link }) => {
                     </div>
                 </div>
                 <div className={styles.toggle_mt} style={{ display: 'flex', flexDirection: 'column' }}>
-                    <h3 className={[styles.white_font].join(' ')}>{inform} нам об аллергии</h3>
+                    <h3 className={[styles.white_font].join(' ')}>{inform} нам об аллергии?</h3>
                     <input style={{ border: 'none', borderBottom: '1px solid var(--white)' }} onFocus={focusHandler} onBlur={focusHandler} onChange={e => setAllergy(e.target.value)} className={[styles.white_font, styles.green].join(' ')} type='text' value={allergy} />
                     <div style={{ transition: 'all .4s' }} className={[activeInfo ? styles.white_font : styles.green_font].join(' ')}>{your} данные успешно сохранены!</div>
-                    <button style={{ width: '35%', margin: '0 auto', marginTop: '1rem', fontSize: '1.3rem' }} className={[styles.save].join(' ')} onClick={buttonHanlder}>Сохранить</button>
+                    <button style={{ width: '35%', margin: '0 auto', fontSize: '1.3rem' }} className={[styles.save].join(' ')} onClick={buttonHanlder}>Сохранить</button>
                 </div>
             </div>
         </div>

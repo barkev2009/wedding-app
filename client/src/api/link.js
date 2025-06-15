@@ -1,4 +1,5 @@
 import { $authHost, $host } from ".";
+import { PUBLIC_URL } from "../const";
 import { setCookie } from "../utils/cookies";
 
 export const createAPI = async (name) => {
@@ -40,7 +41,7 @@ export const getAllLinks = async () => {
 }
 
 export const getLink = async (link_uuid) => {
-    const { data } = await $authHost.get('api/link/' + link_uuid);
+    const { data } = await $authHost.get('api/link/' + link_uuid.replace(`${PUBLIC_URL}/`, ''));
     setCookie('link', JSON.stringify(data));
     // console.log('getLink', data);
     return data;

@@ -85,19 +85,19 @@ const Details = ({ link }) => {
     let decide, your, think;
     switch (link.gender) {
         case GENDERS.male.code:
-            decide = 'ты решишь';
+            decide = 'ты решил';
             your = 'твоему пожеланию в конверте';
-            think = 'Не ломай';
+            think = 'ты не ломал';
             break;
         case GENDERS.female.code:
-            decide = 'ты решишь';
+            decide = 'ты решила';
             your = 'твоему пожеланию в конверте';
-            think = 'Не ломай';
+            think = 'ты не ломала';
             break;
         default:
-            decide = 'вы решите';
+            decide = 'вы решили';
             your = 'вашим пожеланиям в конвертах';
-            think = 'Не ломайте';
+            think = 'вы не ломали';
             break;
     }
 
@@ -106,7 +106,7 @@ const Details = ({ link }) => {
             <h1 className={[styles.green_font, styles.center_text].join(' ')}>Детали</h1>
             <div>
                 <h3 className={[styles.green_font, styles.center_text].join(' ')}>
-                    Приятным комплиментом для нас будет,
+                    Для нас было приятным комплиментом,
                     если вместо живых цветов {decide} подарить нам бутылочку
                     красного полусладкого вина для
                     нашей семейной винотеки</h3>
@@ -117,8 +117,8 @@ const Details = ({ link }) => {
                     </div>
                 </div>
                 <h3 className={[styles.green_font, styles.center_text].join(' ')}>
-                    {think} голову над подарком -
-                    мы будем рады {your}</h3>
+                    Если {think} голову над подарком,
+                    мы были рады {your}</h3>
                 <div className={styles.svgContainer}>
                     <h2 id='envelope' className={[styles.money].join(' ')}>+</h2>
                     <img id='envelope_img' onClick={clickEnvelopeHandler} className={[styles.envelope].join(' ')} src={png} alt='envelope' />

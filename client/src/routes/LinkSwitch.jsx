@@ -18,7 +18,7 @@ const LinkSwitch = observer(
     const [link, setLink] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const editHandler = ({visitOption, allergy, name}) => {
+    const editHandler = ({ visitOption, allergy, name }) => {
       return () => {
         editAPI({ link_uuid: link.link_uuid, code: visitOption.code, allergy, name }).then(
           (resp) => {
